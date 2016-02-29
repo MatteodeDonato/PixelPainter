@@ -1,7 +1,3 @@
-// Learning Processing
-// Daniel Shiffman
-// http://www.learningprocessing.com
-// Example 1-1: stroke and fill
 var x = 0;
 var y = 0;
 var pencilSelected = 0;
