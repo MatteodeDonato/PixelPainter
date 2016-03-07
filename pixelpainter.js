@@ -1,12 +1,6 @@
-// Learning Processing
-// Daniel Shiffman
-// http://www.learningprocessing.com
-// Example 1-1: stroke and fill
 var x = 0;
 var y = 0;
-var pencilSelected = 0;
-var markerSelected = 0;
-var paintbrushSelected = 0;
+var mode = "none";
 function setup() {
   frameRate(10000);
   createCanvas(960, 540);
@@ -16,29 +10,23 @@ function setup() {
 }
 function mouseClicked(){
     if(dist(mouseX, mouseY, 50, 50)<=25){
-        if(pencilSelected==0){
-            pencilSelected = 1;
-            markerSelected= 0;
-            paintbrushSelected= 0;
+        if(mode!="pencil"){
+            mode = "pencil";
         }
     }
     if(dist(mouseX, mouseY, 50, 150)<=25){
-        if(markerSelected==0){
-            pencilSelected = 0;
-            markerSelected= 1;
-            paintbrushSelected= 0;
+        if(mode!="marker"){
+            mode= "marker";
         }
     }
     if(dist(mouseX, mouseY, 50, 250)<=25){
-        if(markerSelected==0){
-            pencilSelected = 0;
-            markerSelected= 0;
-            paintbrushSelected= 1;
+        if(mode!="paintbrush"){
+            mode= "paintbrush";
         }
     }
 }
 function draw() {
-    if(pencilSelected==1){
+    if(mode=="pencil"){
     if (mouseIsPressed){
       line(pmouseX, pmouseY, mouseX, mouseY);
     if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
@@ -46,7 +34,7 @@ function draw() {
     }
     }
     }
-    if(markerSelected==1){
+    if(mode=="marker"){
     if (mouseIsPressed){
         strokeWeight(10);
       line(pmouseX, pmouseY, mouseX, mouseY);
@@ -55,7 +43,7 @@ function draw() {
     }
     }
     }
-    if(paintbrushSelected==1){
+    if(mode=="paintbrush"){
     if (mouseIsPressed){
         stroke(255,0,0,80);
         for(var i =0; i<10; i++){
