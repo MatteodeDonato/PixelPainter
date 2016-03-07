@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+    cursor: crosshair;
+}
+
+h1 {
+    color: #1abc9c;
+    text-align: center;
+    cursor: pointer;
+}
+
+p {
+    color: #2c3e50;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 20px;
+    text-align: center;
+
+}
