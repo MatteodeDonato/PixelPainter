@@ -1,74 +1,62 @@
-// Learning Processing
-// Daniel Shiffman
-// http://www.learningprocessing.com
-// Example 1-1: stroke and fill
 var x = 0;
 var y = 0;
-var pencilSelected = 0;
-var markerSelected = 0;
-var paintbrushSelected = 0;
+var mode = "none";
 function setup() {
   frameRate(10000);
   createCanvas(960, 540);
-  fill(26,188,156);
-  stroke(26,188,156);
+  fill(255, 0, 0);
+  stroke(255,0,0);
   background(255);
 }
 function mouseClicked(){
     if(dist(mouseX, mouseY, 50, 50)<=25){
-        if(pencilSelected==0){
-            pencilSelected = 1;
-            markerSelected= 0;
-            paintbrushSelected= 0;
+        if(mode!="pencil"){
+            mode = "pencil";
         }
     }
     if(dist(mouseX, mouseY, 50, 150)<=25){
-        if(markerSelected==0){
-            pencilSelected = 0;
-            markerSelected= 1;
-            paintbrushSelected= 0;
+        if(mode!="marker"){
+            mode= "marker";
         }
     }
     if(dist(mouseX, mouseY, 50, 250)<=25){
-        if(markerSelected==0){
-            pencilSelected = 0;
-            markerSelected= 0;
-            paintbrushSelected= 1;
+        if(mode!="paintbrush"){
+            mode= "paintbrush";
         }
     }
 }
 function draw() {
-    if(pencilSelected==1){
+    if(mode=="pencil"){
     if (mouseIsPressed){
       line(pmouseX, pmouseY, mouseX, mouseY);
     if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
-     point(mouseX, mouseY);
+     point(mouseX, mouseY);   
     }
     }
     }
-    if(markerSelected==1){
+    if(mode=="marker"){
     if (mouseIsPressed){
         strokeWeight(10);
       line(pmouseX, pmouseY, mouseX, mouseY);
     if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
-       point(mouseX, mouseY);
+       point(mouseX, mouseY);   
     }
     }
     }
-    if(paintbrushSelected==1){
+    if(mode=="paintbrush"){
     if (mouseIsPressed){
-        stroke(26,188,156, 80);
+        stroke(255,0,0,80);
         for(var i =0; i<10; i++){
         strokeWeight(3*i);
         //ellipse(mouseX, mouseY, 15, 15);
       ellipse(mouseX, mouseY, 15, 15);
         }
     if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
-       ellipse(mouseX, mouseY, 10, 10);
+       ellipse(mouseX, mouseY, 10, 10);   
     }
     }
     }
-  strokeWeight(1);
+  strokeWeight(1); 
   ellipse(50, 50, 50, 50);
   ellipse(50, 150, 50, 50);
   ellipse(50, 250, 50, 50);
