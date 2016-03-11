@@ -1,7 +1,3 @@
-// Learning Processing
-// Daniel Shiffman
-// http://www.learningprocessing.com
-// Example 1-1: stroke and fill
 var x = 0;
 var y = 0;
 var mode = "none";
@@ -13,38 +9,15 @@ function setup() {
   stroke(255,0,0);
   background(255);
 }
-function mouseClicked(){
-    if(dist(mouseX, mouseY, 50, 50)<=25){
-        if(mode!="pencil"){
-            mode = "pencil";
-        }
-    }
-    if(dist(mouseX, mouseY, 50, 150)<=25){
-        if(mode!="marker"){
-            mode= "marker";
-        }
-    }
-    if(dist(mouseX, mouseY, 50, 250)<=25){
-        if(mode!="paintbrush"){
-            mode= "paintbrush";
-        }
-    }
-    if(dist(mouseX, mouseY, 50, 350)<=25){
-        if(mode!="eraser"){
-            mode = "eraser";
-        }
-    }
-    if(dist(mouseX, mouseY, 50, 450)<=25){
-        if(mode!="sprayCan"){
-            mode = "sprayCan";
-        }
-    }
-    if(dist(mouseX, mouseY, 50, 550)<=25){
-        if(mode!="line"){
-            mode = "line";
-        }
-    }
-}
+
+
+function makePencil(){mode = "pencil";}
+function makePaint(){mode = "paintbrush";}
+function makeEraser(){mode = "eraser"};
+function makeSpray(){mode = "sprayCan"};
+function makeMarker(){mode = "marker"};
+function makeLine(){mode = "line"};
+
 function draw() {
     if(mode=="pencil"){
     if (mouseIsPressed){
@@ -113,23 +86,4 @@ function draw() {
         line(x, y, mouseX, mouseY);
     }
     }
-    
-  strokeWeight(1); 
-  fill(255);
-  rect(0, 0, 100, height);
-    fill(255, 0, 0);
-  ellipse(50, 50, 50, 50);
-  ellipse(50, 150, 50, 50);
-  ellipse(50, 250, 50, 50);
-  ellipse(50, 350, 50, 50);
-  ellipse(50, 450, 50, 50);
-  ellipse(50, 550, 50, 50);
-//  if (mouseIsPressed){
-//    if(dist((mouseX, mouseY, width-50, 50)<=25){
-//      line(pmouseX, pmouseY, mouseX, mouseY);
-//    }
-//}
-//function mouseClicked() {
-  //if(dist(mouseX, mouseY, width-50, 50)<=25){
-   //}
 }
