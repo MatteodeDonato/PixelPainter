@@ -4,7 +4,7 @@ var mode = "none";
 var backColor = 255;
 function setup() {
   frameRate(10000);
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight - 200);
   fill(255, 0, 0);
   stroke(255,0,0);
   background(255);
@@ -17,6 +17,13 @@ function makeEraser(){mode = "eraser"};
 function makeSpray(){mode = "sprayCan"};
 function makeMarker(){mode = "marker"};
 function makeLine(){mode = "line"};
+
+var spraycanButton = document.getElementById("spraycan");
+var paintbrushButton = document.getElementById("paintbrush");
+var markerButton = document.getElementById("marker");
+var eraserButton = document.getElementById("spraycan");
+var spraycanButton = document.getElementById("spraycan");
+var spraycanButton = document.getElementById("spraycan");
 
 function draw() {
     if(mode=="pencil"){
