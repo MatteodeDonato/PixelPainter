@@ -1,123 +1,40 @@
-var x = 0;
-var y = 0;
-var mode = "none";
-var backColor = 255;
-function setup() {
-  frameRate(10000);
-  createCanvas(windowWidth, windowHeight - 200);
-  fill(255, 0, 0);
-  stroke(255,0,0);
-  background(255);
-}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script language="javascript" type="text/javascript" src="p5.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="dist/css/flat-ui.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+      <script language="javascript" type="text/javascript" src="pixelpainter.js"></script>
 
-var $slider = $("#slider");
-if ($slider.length > 0) {
-  $slider.slider({
-    min: 1,
-    max: 5,
-    value: 3,
-    orientation: "horizontal",
-    range: "min"
-  }).addSliderSegments($slider.slider("option").max);
-}
+  <title> Pixel Painter</title>
+  </head>
 
-
-
-function makePencil(){
-    mode = "pencil";
+<body>
+ 
+<nav class="navbar navbar-default" role="navigation">
+<div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
+<span class="sr-only">Toggle navigation</span>
+</button>
+<a class="navbar-brand" href="index.html">Pixel Painter</a></div>
+<div class="collapse navbar-collapse" id="navbar-collapse-01">
     
-}
-function makePaint(){
-    mode = "paintbrush";
-}
-function makeEraser(){
-    mode = "eraser";
-}
-function makeSpray(){
-    mode = "sprayCan";
-}
-function makeMarker(){
-    mode = "marker";
-}
-function makeLine(){
-    mode = "line";
-}
+     <ul class="nav navbar-nav">
+      <li><a onclick = "makeMarker()" id = "marker" href="#marker">Marker</a></li>
+         <li id = liPencil><a onclick = "makePencil()" id = "pencil" href="#pencil">Pencil</a></li>
+         <li><a onclick = "makeEraser()" id = "eraser" href="#eraser">Eraser</a></li>
+         <li><a onclick="makeSpray()" id = "spraycan" href="#spraycan">Spray Can</a></li>
+         <li><a onclick="makePaint()" id = "paintbrush" href="#paintbrush">Paint Brush</a></li>
+    </ul>
+</nav>
+<div id="slider"></div>
 
-//var spraycanButton = document.getElementById("spraycan");
-//var paintbrushButton = document.getElementById("paintbrush");
-//var markerButton = document.getElementById("marker");
-//var eraserButton = document.getElementById("eraser");
-//var spraycanButton = document.getElementById("spraycan");
+ 
 
-
-function draw() {
-
-    if(mode=="pencil"){
-       
-    if (mouseIsPressed){
-      line(pmouseX, pmouseY, mouseX, mouseY);
-    if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
-     point(mouseX, mouseY);   
-    }
-    }
-    }
-    if(mode=="marker"){
-    if (mouseIsPressed){
-        strokeWeight(10);
-      line(pmouseX, pmouseY, mouseX, mouseY);
-    if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
-       point(mouseX, mouseY);   
-    }
-    }
-    }
-    if(mode=="paintbrush"){
-    if (mouseIsPressed){
-        for(var i =10; i>00; i--){
-            stroke(255,0,0,35);
-        strokeCap(ROUND);
-        line(pmouseX, pmouseY, mouseX, mouseY);
-        strokeWeight(3*i);
-            stroke(255,0,0,35);
-        strokeCap(SQUARE);
-      line(pmouseX, pmouseY, mouseX, mouseY);
-        }
-    if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
-       //ellipse(mouseX, mouseY, 15, 15);   
-    }
-    }
-    }
-    if(mode=="eraser"){
-    if (mouseIsPressed){
-        strokeWeight(50);
-        stroke(backColor);
-        line(pmouseX, pmouseY, mouseX, mouseY);
-    if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
-       point(mouseX, mouseY);   
-    }
-    }
-        stroke(255, 0, 0);
-    }
-    if(mode=="sprayCan"){
-        strokeWeight(1); 
-    if (mouseIsPressed){
-      for (var h = 0; h < 100; h++) {  
-        var x = randomGaussian(mouseX,15);
-        var y = randomGaussian(mouseY,15);
-          for(var i = 0; i<20; i++){
-            point(x, y);
-          }
-      }
-    if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
-       point(mouseX, mouseY);   
-    }
-    }
-    }
-    if(mode=="line"){
-        strokeWeight(5); 
-    if (mouseClicked){
-        var x =pmouseX;
-        var y =pmouseY;
-        line(x, y, mouseX, mouseY);
-    }
-    }
-}
+    
+    
+</body>
+</html>
