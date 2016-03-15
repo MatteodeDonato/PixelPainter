@@ -10,23 +10,50 @@ function setup() {
   background(255);
 }
 
+var $slider = $("#slider");
+if ($slider.length > 0) {
+  $slider.slider({
+    min: 1,
+    max: 5,
+    value: 3,
+    orientation: "horizontal",
+    range: "min"
+  }).addSliderSegments($slider.slider("option").max);
+}
 
-function makePencil(){mode = "pencil";}
-function makePaint(){mode = "paintbrush";}
-function makeEraser(){mode = "eraser"};
-function makeSpray(){mode = "sprayCan"};
-function makeMarker(){mode = "marker"};
-function makeLine(){mode = "line"};
 
-var spraycanButton = document.getElementById("spraycan");
-var paintbrushButton = document.getElementById("paintbrush");
-var markerButton = document.getElementById("marker");
-var eraserButton = document.getElementById("spraycan");
-var spraycanButton = document.getElementById("spraycan");
-var spraycanButton = document.getElementById("spraycan");
+
+function makePencil(){
+    mode = "pencil";
+    
+}
+function makePaint(){
+    mode = "paintbrush";
+}
+function makeEraser(){
+    mode = "eraser";
+}
+function makeSpray(){
+    mode = "sprayCan";
+}
+function makeMarker(){
+    mode = "marker";
+}
+function makeLine(){
+    mode = "line";
+}
+
+//var spraycanButton = document.getElementById("spraycan");
+//var paintbrushButton = document.getElementById("paintbrush");
+//var markerButton = document.getElementById("marker");
+//var eraserButton = document.getElementById("eraser");
+//var spraycanButton = document.getElementById("spraycan");
+
 
 function draw() {
+
     if(mode=="pencil"){
+       
     if (mouseIsPressed){
       line(pmouseX, pmouseY, mouseX, mouseY);
     if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
