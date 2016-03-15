@@ -4,22 +4,56 @@ var mode = "none";
 var backColor = 255;
 function setup() {
   frameRate(10000);
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight - 200);
   fill(255, 0, 0);
   stroke(255,0,0);
   background(255);
 }
 
+var $slider = $("#slider");
+if ($slider.length > 0) {
+  $slider.slider({
+    min: 1,
+    max: 5,
+    value: 3,
+    orientation: "horizontal",
+    range: "min"
+  }).addSliderSegments($slider.slider("option").max);
+}
 
-function makePencil(){mode = "pencil";}
-function makePaint(){mode = "paintbrush";}
-function makeEraser(){mode = "eraser"};
-function makeSpray(){mode = "sprayCan"};
-function makeMarker(){mode = "marker"};
-function makeLine(){mode = "line"};
+
+
+function makePencil(){
+    mode = "pencil";
+    
+}
+function makePaint(){
+    mode = "paintbrush";
+}
+function makeEraser(){
+    mode = "eraser";
+}
+function makeSpray(){
+    mode = "sprayCan";
+}
+function makeMarker(){
+    mode = "marker";
+}
+function makeLine(){
+    mode = "line";
+}
+
+//var spraycanButton = document.getElementById("spraycan");
+//var paintbrushButton = document.getElementById("paintbrush");
+//var markerButton = document.getElementById("marker");
+//var eraserButton = document.getElementById("eraser");
+//var spraycanButton = document.getElementById("spraycan");
+
 
 function draw() {
+
     if(mode=="pencil"){
+       
     if (mouseIsPressed){
       line(pmouseX, pmouseY, mouseX, mouseY);
     if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
