@@ -113,11 +113,22 @@ function draw() {
     }
     }
     if(mode=="line"){
-        strokeWeight(5); 
-    if (mouseClicked){
-        var x =pmouseX;
-        var y =pmouseY;
-        line(x, y, mouseX, mouseY);
+        strokeWeight(5);
+    if (mouseIsPressed){
+        linefinalx =mouseX;
+        linefinaly =mouseY;
     }
+        line(lineinitx, lineinity, Flinefinalx, Flinefinaly);
     }
+}
+function mouseClicked(){
+    if(mode=="line" || mode=="rectangle"){
+        lineinitx =pmouseX;
+        lineinity =pmouseY;        
+    }
+}
+function mouseReleased(){
+    Flinefinalx=linefinalx;
+    Flinefinaly=linefinaly;
+}
 }
