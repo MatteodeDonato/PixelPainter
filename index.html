@@ -12,7 +12,7 @@
   <title> Pixel Painter</title>
   </head>
 
-<body>
+<body oncontextmenu ="return false">
  
 <nav class="navbar navbar-default" role="navigation">
 <div class="navbar-header">
@@ -24,10 +24,11 @@
     
      <ul class="nav navbar-nav">
       <li><a onclick = "makeMarker()" id = "marker" href="#marker">Marker</a></li>
-         <li id = liPencil><a onclick = "makePencil()" id = "pencil" href="#pencil">Pencil</a></li>
+         <li><a onclick = "makePencil()" id = "pencil" href="#pencil">Pencil</a></li>
          <li><a onclick = "makeEraser()" id = "eraser" href="#eraser">Eraser</a></li>
          <li><a onclick="makeSpray()" id = "spraycan" href="#spraycan">Spray Can</a></li>
          <li><a onclick="makePaint()" id = "paintbrush" href="#paintbrush">Paint Brush</a></li>
+         <li><a onclick="makeLine()" id = "line" href="#line">Line</a></li>
     </ul>
 </nav>
 <div id="slider"></div>

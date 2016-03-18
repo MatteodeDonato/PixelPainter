@@ -1,5 +1,13 @@
 var x = 0;
 var y = 0;
+
+var  lineinitx = 0;
+var linefinalx = 0;
+var lineinity = 0;
+var linefinaly = 0;
+var Flinefinalx = 0;
+var Flinefinaly = 0;
+
 var mode = "none";
 var backColor = 255;
 function setup() {
@@ -10,16 +18,16 @@ function setup() {
   background(255);
 }
 
-var $slider = $("#slider");
-if ($slider.length > 0) {
-  $slider.slider({
-    min: 1,
-    max: 5,
-    value: 3,
-    orientation: "horizontal",
-    range: "min"
-  }).addSliderSegments($slider.slider("option").max);
-}
+//var $slider = $("#slider");
+//if ($slider.length > 0) {
+//  $slider.slider({
+//    min: 1,
+//    max: 5,
+//    value: 3,
+//    orientation: "horizontal",
+//    range: "min"
+//  }).addSliderSegments($slider.slider("option").max);
+//}
 
 
 
@@ -131,4 +139,4 @@ function mouseReleased(){
     Flinefinalx=linefinalx;
     Flinefinaly=linefinaly;
 }
-}
+
