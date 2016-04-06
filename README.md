@@ -9,7 +9,7 @@ Phase 1
 - rectangle/ellipse
 - thickness
 - dropper
-- 
+
 
 to add to main branch:
 - Jack's color sliders
