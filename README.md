@@ -4,12 +4,12 @@
 Pixelpainter is an open-source, web-based image editting enviornment.
 
 
-##Phase 1
+###Phase 1
 - line (growing) -- Emily will upload
 - rectangle/ellipse
 - thickness
 - dropper
 
-##to add to main branch:
+###to add to main branch:
 - Jack's color sliders
 - Emily's lines
