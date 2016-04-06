@@ -5,7 +5,7 @@ Pixelpainter is an open-source, web-based image editting enviornment.
 It uses the open-source javascript processing API [p5js](p5js.org).
 
 ###Phase 1
-- line (growing) -- Emily will upload
+- ~~line (growing) -- Emily will upload~~
 - rectangle/ellipse
 - thickness
 - dropper
@@ -13,4 +13,4 @@ It uses the open-source javascript processing API [p5js](p5js.org).
 
 ###to add to main branch:
 - Jack's color sliders
-- Emily's lines
+- ~~Emily's lines~~
