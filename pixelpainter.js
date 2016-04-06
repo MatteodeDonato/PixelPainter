@@ -1,12 +1,11 @@
 var x = 0;
 var y = 0;
-
-var  lineinitx = 0;
-var linefinalx = 0;
-var lineinity = 0;
-var linefinaly = 0;
-var Flinefinalx = 0;
-var Flinefinaly = 0;
+var buffer;
+var count = 1;
+var startx = 0;
+var starty = 0;
+var endx = 0;
+var endy = 0;
 
 var r1, g1, b1;
 var r2, g2, b2;
@@ -42,14 +41,9 @@ function setColor1(){colorSelected = color1};
 function setColor2(){colorSelected = color2};
 
 function saveImg(fileType){
-    
     save("drawing" + fileCount + "." + fileType);
     fileCount++;
-
-    
 }
-
-
 function draw() {
 
 stroke(colorSelected);
@@ -110,15 +104,26 @@ stroke(colorSelected);
                 }
                 break;
 
-
             case "line":
-                strokeWeight(5);
-                if (mouseIsPressed){
-                    linefinalx =mouseX;
-                    linefinaly =mouseY;
-                }
-                line(lineinitx, lineinity, Flinefinalx, Flinefinaly);
-
+              pixels = buffer;
+              updatePixels();
+              if (count % 2 == 0) {
+                  line(startx, starty, endx, endy);
+              }
+              if (count % 2 == 1) {
+                  line(startx, starty, mouseX, mouseY);
+              }
+              break;
+            case "rectangle":
+              pixels = buffer;
+              updatePixels();
+              if (count % 2 == 0) {
+                  rect(startx, starty, endx-startx, endy-starty);
+              }
+              if (count % 2 == 1) {
+                  rect(startx, starty, mouseX-startx, mouseY-starty);
+              }
+              break;
             case "dropper":   //just makes it black (no matter what)
                 
               //  save("testing.png");
@@ -130,13 +135,20 @@ stroke(colorSelected);
         }
 }
 
-function mouseClicked(){
-    if(mode=="line" || mode=="rectangle"){
-        lineinitx =pmouseX;
-        lineinity =pmouseY;
-    }
+function updateBuffer() {
+  loadPixels();
+  buffer = pixels;
 }
-function mouseReleased(){
-    Flinefinalx=linefinalx;
-    Flinefinaly=linefinaly;
+
+function mouseClicked() {
+  count++;
+  if (count % 2 == 1) {
+    startx = mouseX;
+    starty = mouseY;
+  }
+  if (count % 2 == 0) {
+    endx = mouseX;
+    endy = mouseY;
+  }
+  updateBuffer();
 }
