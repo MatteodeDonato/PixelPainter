@@ -9,6 +9,7 @@ It uses the open-source javascript processing API [p5js](p5js.org)
 - rectangle/ellipse
 - thickness
 - dropper
+- save file as jpg or png
 
 ###to add to main branch:
 - Jack's color sliders
