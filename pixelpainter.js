@@ -36,6 +36,7 @@ function makeEraser(){mode = "eraser";}
 function makeSpray(){ mode = "sprayCan";}
 function makeMarker(){ mode = "marker";}
 function makeLine(){mode = "line";}
+function makeRectangle(){mode = "rectangle";}
 function makeDropper(){mode = "dropper";}
 function setColor1(){colorSelected = color1};
 function setColor2(){colorSelected = color2};
