@@ -23,17 +23,17 @@ function setup() {
     createCanvas(windowWidth, windowHeight - 200);
     background(255);
     rSlider = createSlider(0, 255, 0);
-    rSlider.position(20, windowHeight - 100);
+    rSlider.position(20, windowHeight - 65);
     gSlider = createSlider(0, 255, 0);
-    gSlider.position(20, windowHeight - 70);
+    gSlider.position(20, windowHeight - 35);
     bSlider = createSlider(0, 255, 0);
-    bSlider.position(20, windowHeight - 40);
+    bSlider.position(20, windowHeight - 5);
     rSlider.style('width', '200px');
     gSlider.style('width', '200px');
     bSlider.style('width', '200px');
 
     tSlider = createSlider(0, 255, 0);
-    tSlider.position(300, windowHeight - 70);
+    tSlider.position(300, windowHeight - 65);
     tSlider.style('width', '200px')
     color1 = color(0, 0, 0);
     color2 = color(0, 0, 0);
@@ -86,6 +86,13 @@ function saveImg(fileType) {
 }
 
 function draw() {
+//    
+//    fill(0)
+//    textSize(32);
+//    text("(" + mouseX + "," + mouseY + ")", 300, windowHeight - 100); 
+//    
+//    document.getElementById("mPosX").innerHTML = mouseX;
+    document.getElementById("p1").innerHTML = "(" + mouseX + "," + mouseY + ") ";
     var r = rSlider.value();
     var g = gSlider.value();
     var b = bSlider.value();
@@ -98,7 +105,7 @@ function draw() {
     if (colorSelected === color2) color2 = color(r, g, b);
     switch (mode) {
         case "pencil":
-            if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200) {
+            if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200 && mouseX > 0 && mouseY > 0) {
                 fill(colorSelected);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
@@ -106,7 +113,7 @@ function draw() {
             }
             break;
         case "marker":
-            if (mouseIsPressed) {
+          if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200 && mouseX > 0 && mouseY > 0) {
                 blendMode(REPLACE);
                 strokeWeight(t + 10);
                 stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 5);
@@ -117,7 +124,7 @@ function draw() {
             }
             break;
         case "paintbrush":
-            if (mouseIsPressed) {
+            if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200 && mouseX > 0 && mouseY > 0) {
                 for (var i = 10; i > 00; i--) {
                     strokeCap(ROUND);
                     line(pmouseX, pmouseY, mouseX, mouseY);
@@ -129,7 +136,7 @@ function draw() {
             }
             break;
         case "eraser":
-            if (mouseIsPressed) {
+            if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200 && mouseX > 0 && mouseY > 0) {
                 strokeWeight(50);
                 stroke(backColor);
                 line(pmouseX, pmouseY, mouseX, mouseY);
@@ -140,7 +147,7 @@ function draw() {
             stroke(255, 0, 0);
             break;
         case "sprayCan":
-            if (mouseIsPressed) {
+           if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200 && mouseX > 0 && mouseY > 0) {
                 strokeWeight(1);
                 for (var h = 0; h < 100; h++) {
                     var x = randomGaussian(mouseX, 15);
@@ -174,7 +181,7 @@ if (count % 2 == 1) {
             }
             break;
         case "dropper":
-            if (mouseIsPressed) {
+            if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200 && mouseX > 0 && mouseY > 0) {
                 loadPixels();
                 console.log(mouseX, mouseY)
                 console.log(pixels[mouseX * mouseY], pixels[mouseX * mouseY + 1], pixels[mouseX * mouseY + 2], pixels[mouseX * mouseY + 2])
