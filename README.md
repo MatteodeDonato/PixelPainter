@@ -6,7 +6,6 @@ It uses the open-source javascript processing API [p5js](p5js.org).
 
 ###Requirements
 Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpimages/390/download/download_1789690.pdf)
-(add to this doc later)
 
 > ####Part I: ​Create a basic pixel drawing experience.
 >Picture the eventual evolution of your Pixel Painter program. When in doubt, mimic the behavior of MS Paint.
