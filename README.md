@@ -23,6 +23,8 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 >#####Each group must also implement at least 3 of the following tools:
 >  *brush (multiple style choices), paint bucket, stamp, triangle, Bezier curve, gridlines, text, spray can, clone tool, crop
 > - Users should be able to save their image in either the .png or .jpg format.
+
+
 > ####Part II:​Add support for photos and filters
 > - **Extension**: Users should be able to open a .jpg, .png, or .gif image to add to the canvas. Incorrect file types should output >an error message and not cause the
 >program to crash.
