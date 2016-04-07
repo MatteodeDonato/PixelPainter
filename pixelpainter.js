@@ -19,6 +19,7 @@ var backColor = 255; //background color
 var r, g, b;
 
 function setup() {
+    cursor(CROSS);
     frameRate(10001);
     createCanvas(windowWidth, windowHeight - 200);
     background(255);
@@ -61,15 +62,31 @@ function makeMarker() {
 }
 
 function makeLine() {
+    count=1;
     mode = "line";
 }
 
+function makeEllipse() {
+    count=1;
+    mode = "ellipse";
+}
+
+function makeTriangle() {
+    count=1;
+    mode = "triangle";
+}
+
 function makeRectangle() {
+    count=1;
     mode = "rectangle";
 }
 
 function makeDropper() {
     mode = "dropper";
+}
+
+function makeGridlines() {
+    mode = "gridlines";
 }
 
 function setColor1() {
@@ -180,6 +197,22 @@ if (count % 2 == 1) {
                 rect(startx, starty, mouseX - startx, mouseY - starty);
             }
             break;
+        case "ellipse":
+            pixels = buffer;
+            updatePixels();
+                if (count % 2 == 1) {
+                    noStroke();
+                    ellipse(startx, starty, 2.8*(mouseX-startx), 2.8*(mouseY-starty));
+                }
+                break;
+        case "triangle":
+            pixels = buffer;
+            updatePixels();
+            if (count % 2 == 1) {
+                noStroke();
+                triangle(startx, starty, startx, mouseY, mouseX, mouseY);
+            }
+            break;
         case "dropper":
             if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200 && mouseX > 0 && mouseY > 0) {
                 loadPixels();
@@ -194,8 +227,15 @@ if (count % 2 == 1) {
 }
 
 function updateBuffer() {
+    if(mode=="gridlines"){
+        for(var i = 0; i < width; i+=20){
+            line(i, height, i, 0);
+            line(width, i, 0, i);
+        }
+    }
     loadPixels();
     buffer = pixels;
+    cursor(CROSS);
 }
 
 function mouseClicked() {
