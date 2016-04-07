@@ -35,8 +35,8 @@ function setup() {
     tSlider = createSlider(0, 255, 0);
     tSlider.position(20, windowHeight - 10);
     tSlider.style('width', '200px')
-    color1 = color(0, 255, 0);
-    color2 = color(255, 0, 0);
+    color1 = color(0, 0, 0);
+    color2 = color(0, 0, 0);
     colorSelected = color1;
 }
 //to interact with HTML links
@@ -107,7 +107,7 @@ function draw() {
             break;
         case "marker":
             if (mouseIsPressed) {
-                strokeWeight(t + 10);
+                strokeWeight(t + 70);
                 stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 5);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
