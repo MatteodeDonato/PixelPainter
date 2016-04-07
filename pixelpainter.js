@@ -155,10 +155,10 @@ function draw() {
         case "line":
             pixels = buffer;
             updatePixels();
-            if (count % 2 == 0) {
-                line(startx, starty, endx, endy);
-            }
-            if (count % 2 == 1) {
+if (count % 2 == 0) {
+    line(startx, starty, endx, endy);
+}
+if (count % 2 == 1) {
                 line(startx, starty, mouseX, mouseY);
             }
             break;
