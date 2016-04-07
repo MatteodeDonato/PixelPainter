@@ -19,7 +19,7 @@ var backColor = 255; //background color
 var r, g, b;
 
 function setup() {
-    frameRate(10000);
+    frameRate(10001);
     createCanvas(windowWidth, windowHeight - 200);
     background(255);
     rSlider = createSlider(0, 255, 0);
@@ -33,7 +33,7 @@ function setup() {
     bSlider.style('width', '200px');
 
     tSlider = createSlider(0, 255, 0);
-    tSlider.position(20, windowHeight - 10);
+    tSlider.position(300, windowHeight - 70);
     tSlider.style('width', '200px')
     color1 = color(0, 0, 0);
     color2 = color(0, 0, 0);
@@ -98,7 +98,7 @@ function draw() {
     if (colorSelected === color2) color2 = color(r, g, b);
     switch (mode) {
         case "pencil":
-            if (mouseIsPressed) {
+            if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200) {
                 fill(colorSelected);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
@@ -107,7 +107,8 @@ function draw() {
             break;
         case "marker":
             if (mouseIsPressed) {
-                strokeWeight(t + 70);
+                blendMode(REPLACE);
+                strokeWeight(t + 10);
                 stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 5);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
