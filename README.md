@@ -14,9 +14,11 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - ~~line (growing) -- Emily will upload~~
 - ~~rectangle~~/ellipse
 - thickness
-- *dropper* —— does not work on retina ```displayDensity```
+- ~~*dropper*~~ —— does not work on retina `displayDensity` 
+⋅⋅* should be fine; computers in lab are normal density 
 - ~~save file as jpg or png~~
 
 ####to add to main branch:
 - Jack's color sliders
 - ~~Emily's lines~~
+
