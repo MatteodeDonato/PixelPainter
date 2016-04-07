@@ -17,6 +17,7 @@ var fileType;
 var mode = ""; //default mode is off
 var backColor = 255; //background color
 var r, g, b;
+var grid="none";
 
 function setup() {
     cursor(CROSS);
@@ -160,6 +161,7 @@ function draw() {
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0) {
                     point(mouseX, mouseY);
                 }
+                updateBuffer();
             }
             stroke(255, 0, 0);
             break;
@@ -227,8 +229,10 @@ if (count % 2 == 1) {
 }
 
 function updateBuffer() {
-    if(mode=="gridlines"){
+    if(grid=="display"){
         for(var i = 0; i < width; i+=20){
+            stroke(0);
+            strokeWeight(1);
             line(i, height, i, 0);
             line(width, i, 0, i);
         }
@@ -239,6 +243,14 @@ function updateBuffer() {
 }
 
 function mouseClicked() {
+    if(mode=="gridlines"){
+        if(grid=="display"){
+            grid = "none";
+        }
+        if(grid=="none"){
+            grid = "display";
+        }
+    }
     count++;
     if (count % 2 == 1) {
         startx = mouseX;
