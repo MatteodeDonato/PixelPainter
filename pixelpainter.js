@@ -48,6 +48,7 @@ function saveImg(fileType){
 function draw() {
 
 stroke(colorSelected);
+fill(colorSelected); //yes? no?
 
         switch(mode){
             case "pencil":
@@ -126,13 +127,15 @@ stroke(colorSelected);
               }
               break;
             case "dropper":   //just makes it black (no matter what)
-                
-              //  save("testing.png");
-                
-                
-//                mPixColor = get(mouseX, mouseY);  //"get" is a stupid function that doesn't work
-//                console.log(mPixColor, mouseX, mouseY)
-//                colorSelected = color(mPixColor);
+              loadPixels();
+              console.log(mouseX, mouseY)
+              console.log(pixels[mouseX * mouseY], pixels[mouseX * mouseY + 1], pixels[mouseX * mouseY + 2], pixels[mouseX * mouseY + 2])
+              //fill(pixels[mouseX * mouseY], pixels[mouseX * mouseY + 1], pixels[mouseX * mouseY + 2], pixels[mouseX * mouseY + 2]);
+              fill(0);
+              rect(50, 50, 20, 20);
+              updatePixels();
+              break;
+
         }
 }
 
