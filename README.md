@@ -71,9 +71,9 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - dropper is kind of weird — works but have to double click
   * also, need cursor icon
   * Emily has it for other tools
-- ~~what to do about the marker
-  * requirements say 3 alternate brushes —
-  * marker was just larger pencil
-  * I changed it so that it was basically just a translucent pencil —— looks watercolor-ish
-  * looks good only when marker is big
-  * should we rename it?~~
+- ~~what to do about the marker~~
+  * ~~requirements say 3 alternate brushes —~~
+  * ~~marker was just larger pencil~~
+  * ~~I changed it so that it was basically just a translucent pencil —— looks watercolor-ish~~
+  * ~~looks good only when marker is big~~
+  * ~~should we rename it?~~
