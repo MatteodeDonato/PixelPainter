@@ -22,3 +22,10 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - Jack's color sliders
 - ~~Emily's lines~~
 
+###What we need to accomplish *April 7* before due
+- merge Matteo's dropper code w/ Jack's color setup
+- add ellipses
+- add triangles??
+  * we need another tool — can we use code for rectangle?
+- thickness
+ * Jack do you have this already?
