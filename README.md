@@ -80,13 +80,15 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 
 
 ####Tools
-- **Watercolor** the watercoklor
+- **Watercolor** 
 - **Pencil**
 - **Eraser**
 - **Spray Can**
 - **Paintbrush**
 - **Line**
+  * click to define the first point, and click again to define endpoint
 - **Rectangle**
+  * click to define one point and click again to define its opposite
 - **Dropper** 
   * to replace one of the color spots with a color on your canvas, click dropper, click the color you want, and then double click the color spot you wish to replace.
   * the dropper uses the ```pixels[]``` array built into *pfjs*
