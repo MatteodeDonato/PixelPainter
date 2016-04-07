@@ -62,7 +62,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - ~~Emily's lines~~
 
 ###What we need to accomplish *April 7* before due
-- merge Matteo's dropper code w/ Jack's color setup
+- ~~merge Matteo's dropper code w/ Jack's color setup~~
 - add ellipses
 - add triangles??
   * we need another tool — can we use code for rectangle?
@@ -71,9 +71,9 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - dropper is kind of weird — works but have to double click
   * also, need cursor icon
   * Emily has it for other tools
-- what to do about the marker
+- ~~what to do about the marker
   * requirements say 3 alternate brushes —
   * marker was just larger pencil
   * I changed it so that it was basically just a translucent pencil —— looks watercolor-ish
   * looks good only when marker is big
-  * should we rename it?
+  * should we rename it?~~
