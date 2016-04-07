@@ -8,17 +8,18 @@ It uses the open-source javascript processing API [p5js](p5js.org).
 Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpimages/390/download/download_1789690.pdf)
 (add to this doc later)
 
->Part I:​Create a basic pixel drawing experience.
+> ####Part I:​Create a basic pixel drawing experience.
 >Picture the eventual evolution of your Pixel Painter program. When in doubt, mimic the behavior of MS Paint.
 >Each group must implement:
->­ Pencil​:​draws in color 1 or color 2 based on which mouse button is pressed
->­ Eraser​:​draws in color2
->­ Rectangle/Ellipse​: ​draws a rectangle/ellipse outlined with color 1 and filled with color 2. Use double buffering to see >the “growth”.
->­ Line​:​draws a straight line between two points. Use double buffering to see the “growth”.
->­ Thickness​: ​changes the thickness of lines, the outlines of shapes, the diameter of the pencil/brush
->­ Color​: ​color 1, color 2, default palette, custom palette, extension: option for transparency
->­ Droplet:​​replace color 1 or color 2 with the color of the selected pixel based on which mouse button is pressed. Icon >changes to eye droplet.
->­ Pixel Tracker​: ​outputs the current position of the mouse cursor
+> - **Pencil**:​draws in color 1 or color 2 based on which mouse button is pressed
+> - **Eraser**:​draws in color2
+> - **Rectangle/Ellipse**: ​draws a rectangle/ellipse outlined with color 1 and filled with color 2. Use double buffering to see >the “growth”.
+> - **Line**:​draws a straight line between two points. Use double buffering to see the “growth”.
+> - **Thickness**: ​changes the thickness of lines, the outlines of shapes, the diameter of the pencil/brush
+> - **Color**: ​color 1, color 2, default palette, custom palette, extension: option for transparency
+> - **Droplet**:​​replace color 1 or color 2 with the color of the selected pixel based on which mouse button is pressed. 
+> Icon changes to eye droplet.
+> - **Pixel Tracker**: ​outputs the current position of the mouse cursor
 >Each group must also implement at least 3 of the following tools:
 >­ brush (multiple style choices), paint bucket, stamp, triangle, Bezier curve, gridlines, text, spray can, clone tool, crop
 >Users should be able to save their image in either the .png or .jpg format.
