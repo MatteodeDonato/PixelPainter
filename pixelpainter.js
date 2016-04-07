@@ -18,8 +18,8 @@ var fileCount = 1;
 var fileType;
 
 
-var mode = "";
-var backColor = 255;
+var mode = "";      //default mode is off
+var backColor = 255;  //background color
 function setup() {
   frameRate(10000);
   createCanvas(windowWidth, windowHeight - 200);
@@ -29,7 +29,7 @@ function setup() {
   colorSelected = color1;
 }
 
-
+//to interact with HTML links
 function makePencil(){mode = "pencil";}
 function makePaint(){mode = "paintbrush";}
 function makeEraser(){mode = "eraser";}
@@ -41,14 +41,16 @@ function makeDropper(){mode = "dropper";}
 function setColor1(){colorSelected = color1};
 function setColor2(){colorSelected = color2};
 
+//save file; specify type in parameters
 function saveImg(fileType){
     save("drawing" + fileCount + "." + fileType);
     fileCount++;
 }
+
 function draw() {
 
 stroke(colorSelected);
-fill(colorSelected); //yes? no?
+fill(colorSelected);
 
         switch(mode){
             case "pencil":
@@ -100,10 +102,9 @@ fill(colorSelected); //yes? no?
                             point(x, y);
                         }
                     }
-                    if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0){
+                    if(abs(mouseX-pmouseX)<=0 && abs(mouseY-pmouseY)<=0)
                         point(mouseX, mouseY);
                     }
-                }
                 break;
 
             case "line":
@@ -126,14 +127,14 @@ fill(colorSelected); //yes? no?
                   rect(startx, starty, mouseX-startx, mouseY-starty);
               }
               break;
-            case "dropper":   //just makes it black (no matter what)
+            case "dropper":
+              if(mouseIsPressed){
               loadPixels();
               console.log(mouseX, mouseY)
               console.log(pixels[mouseX * mouseY], pixels[mouseX * mouseY + 1], pixels[mouseX * mouseY + 2], pixels[mouseX * mouseY + 2])
-              //fill(pixels[mouseX * mouseY], pixels[mouseX * mouseY + 1], pixels[mouseX * mouseY + 2], pixels[mouseX * mouseY + 2]);
-              fill(0);
-              rect(50, 50, 20, 20);
-              updatePixels();
+              color1 = color(pixels[mouseX * mouseY], pixels[mouseX * mouseY + 1], pixels[mouseX * mouseY + 2], pixels[mouseX * mouseY + 2]);
+              updatePixels();     //not entirely sure what this does, but if it ain't broke, don't fix it
+            }
               break;
 
         }
