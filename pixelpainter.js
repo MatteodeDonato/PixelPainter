@@ -75,7 +75,7 @@ fill(colorSelected);
                         strokeCap(ROUND);
                         line(pmouseX, pmouseY, mouseX, mouseY);
                         strokeWeight(3*i);
-                        stroke(0,0,0,35);
+                        stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 35);
                         strokeCap(SQUARE);
                         line(pmouseX, pmouseY, mouseX, mouseY);}
                 }
@@ -93,8 +93,8 @@ fill(colorSelected);
                 break;
 
             case "sprayCan":
-                strokeWeight(1);
                 if (mouseIsPressed){
+                    strokeWeight(1);
                     for (var h = 0; h < 100; h++) {
                         var x = randomGaussian(mouseX,15);
                         var y = randomGaussian(mouseY,15);
