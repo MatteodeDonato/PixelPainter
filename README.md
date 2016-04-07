@@ -12,7 +12,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 
 ####Phase 1
 - ~~line (growing) -- Emily will upload~~
-- rectangle/ellipse
+- ~~rectangle~~/ellipse
 - thickness
 - *dropper* —— does not work on retina ```displayDensity```
 - ~~save file as jpg or png~~
