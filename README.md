@@ -10,7 +10,9 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 > ####Part I: ​Create a basic pixel drawing experience.
 >Picture the eventual evolution of your Pixel Painter program. When in doubt, mimic the behavior of MS Paint.
 >Each group must implement:
-> - **Pencil**: ​draws in color 1 or color 2 based on which mouse button is pressed
+> - **Pencil**: 
+  * draws in color 1 or color 2 based on which mouse button is pressed
+  * default mode
 > - **Eraser**: ​draws in color2
 > - **Rectangle/Ellipse**: ​draws a rectangle/ellipse outlined with color 1 and filled with color 2. Use double buffering to see the “growth”.
 > - **Line**:​draws a straight line between two points. Use double buffering to see the “growth”.
