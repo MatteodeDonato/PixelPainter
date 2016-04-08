@@ -25,12 +25,14 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 > - Users should be able to save their image in either the .png or .jpg format.
 
 > ####Part II: ​Add support for photos and filters
-> - **Extension**: Users should be able to open a .jpg, .png, or .gif image to add to the canvas. Incorrect file types should output >an error message and not cause the
->program to crash.
+> - **Extension**: Users should be able to open a .jpg, .png, or .gif image to add to the canvas. Incorrect file types should > output an error message and not cause the program to crash.
 > - **Extension**: Implement your own image format. Save 24­bit color information for your entire canvas. Allow users to load >or save images in this format.
-> - **Implement at least six non­trivial photo filters (two per person).** At least one filter per person must incorporate >*Perlin noise*. Do not use the built­in P5 filters. Your
-> - filters should be significantly more advanced than the filters from the Technology: Creativity class. Feel free to add >other basic filters (like b&W, warm/cool) to
->your project, but you won’t receive credit for implementing those filters. Allow the user to control at least two parameters >of each filter.
+> - **Implement at least six non­trivial photo filters (two per person).** At least one filter per person must incorporate 
+> *Perlin noise*. Do not use the built­in P5 filters. Your
+> filters should be significantly more advanced than the filters from the Technology: Creativity class. Feel free to add 
+> other basic filters (like b&W, warm/cool) to
+> your project, but you won’t receive credit for implementing those filters. Allow the user to control at least two 
+> parameters of each filter.
 > - **Possible filters include:**
 > - Pixelate/Pointillize
 > - steganography with Encrypt/Decrypt features­ Embed a message in the RGB values on the color
