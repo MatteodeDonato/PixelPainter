@@ -4,8 +4,6 @@ var buffer;
 var count = 1;
 var startx = 0;
 var starty = 0;
-var endx = 0;
-var endy = 0;
 var r1, g1, b1;
 var r2, g2, b2;
 var colorSelected;
@@ -182,9 +180,6 @@ function draw() {
         case "line":
             pixels = buffer;
             updatePixels();
-if (count % 2 == 0) {
-    line(startx, starty, endx, endy);
-}
 if (count % 2 == 1) {
                 line(startx, starty, mouseX, mouseY);
             }
@@ -192,9 +187,6 @@ if (count % 2 == 1) {
         case "rectangle":
             pixels = buffer;
             updatePixels();
-            if (count % 2 == 0) {
-                rect(startx, starty, endx - startx, endy - starty);
-            }
             if (count % 2 == 1) {
                 rect(startx, starty, mouseX - startx, mouseY - starty);
             }
@@ -255,10 +247,6 @@ function mouseClicked() {
     if (count % 2 == 1) {
         startx = mouseX;
         starty = mouseY;
-    }
-    if (count % 2 == 0) {
-        endx = mouseX;
-        endy = mouseY;
     }
     updateBuffer();
 }
