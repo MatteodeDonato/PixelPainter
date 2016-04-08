@@ -51,36 +51,6 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 
 ###Our Progress
 
-####Phase 1
-- ~~line (growing) -- Emily will upload~~
-- ~~rectangle~~/ellipse
-- thickness
-- ~~*dropper*~~ —— does not work on retina `displayDensity` 
-  * should be fine; computers in lab are normal density 
-- ~~save file as jpg or png~~
-
-####to add to main branch:
-- Jack's color sliders
-- ~~Emily's lines~~
-
-###What we need to accomplish *April 7* before due
-- ~~merge Matteo's dropper code w/ Jack's color setup~~
-- add ellipses
-- add triangles??
-  * we need another tool — can we use code for rectangle?
-- ~~thickness~~
- * ~~Jack do you have this already?~~
-- dropper is kind of weird — works but have to double click
-  * also, need cursor icon
-  * Emily has it for other tools
-- ~~what to do about the marker~~
-  * ~~requirements say 3 alternate brushes —~~
-  * ~~marker was just larger pencil~~
-  * ~~I changed it so that it was basically just a translucent pencil —— looks watercolor-ish~~
-  * ~~looks good only when marker is big~~
-  * ~~should we rename it?~~
-
-
 ####Tools
 - **Watercolor** 
 - **Pencil**
@@ -95,4 +65,36 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * to replace one of the color spots with a color on your canvas, click dropper, click the color you want, and then double click the color spot you wish to replace.
   * the dropper uses the ```pixels[]``` array built into *pfjs*
 - **Color 1 & Color2**  
-  * to select, double click. Default value of both is ```(0, 0, 0)```.
+  * to select, **double click**. Default value of both is ```(0, 0, 0)```.
+
+####Phase 1
+- ~~line (growing) -- Emily will upload~~
+- ~~rectangle~~/ellipse
+- thickness
+- ~~*dropper*~~ —— does not work on retina `displayDensity` 
+  * should be fine; computers in lab are normal density 
+- ~~save file as jpg or png~~
+
+####to add to main branch:
+- Jack's color sliders
+- ~~Emily's lines~~
+
+###What we need to accomplish *April 7* before due
+- ~~merge Matteo's dropper code w/ Jack's color setup~~
+- ~~add ellipses~~
+- ~~add triangles??~~
+  * ~~we need another tool — can we use code for rectangle?~~
+- ~~thickness~~
+ * ~~Jack do you have this already?~~
+- dropper is kind of weird — works but have to double click
+  * also, need cursor icon
+  * Emily has it for other tools
+- ~~what to do about the marker~~
+  * ~~requirements say 3 alternate brushes —~~
+  * ~~marker was just larger pencil~~
+  * ~~I changed it so that it was basically just a translucent pencil —— looks watercolor-ish~~
+  * ~~looks good only when marker is big~~
+  * ~~should we rename it?~~
+
+
+
