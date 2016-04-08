@@ -4,6 +4,8 @@
 Pixelpainter is an open-source, web-based image editting enviornment.
 It uses the open-source javascript processing API [p5js](p5js.org).
 
+**Important** Do not adjust the screen size —— it will cause the sliders to be out of place
+
 ###Requirements
 Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpimages/390/download/download_1789690.pdf)
 
