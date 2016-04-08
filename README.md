@@ -64,8 +64,14 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - **Dropper** 
   * to replace one of the color spots with a color on your canvas, click dropper, click the color you want, and then double click the color spot you wish to replace.
   * the dropper uses the ```pixels[]``` array built into *pfjs*
+  * doesn't work if you have sliders —— sliders automatically resetting color you change it to
+  * need to find a way to change slider values
 - **Color 1 & Color2**  
   * to select, **double click**. Default value of both is ```(0, 0, 0)```.
+- **Color Sliders**
+  * the first collumn sets the r, g, and b value for color 1
+  * the seconf collumn sets the r, g, and b value for color 2
+  * the lone slider adjusts the thickness
 
 ####Phase 1
 - ~~line (growing) -- Emily will upload~~
