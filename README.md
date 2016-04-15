@@ -115,7 +115,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * shoukd prhbably not be a link
 - gridlines turn off
   * use switch
-
+- **FIX CANVAS**
 
 
 
