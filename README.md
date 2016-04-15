@@ -76,7 +76,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * the seconf collumn sets the r, g, and b value for color 2
   * the lone slider adjusts the thickness
 
-####Phase 1
+####~~Phase 1~~
 - ~~line (growing) -- Emily will upload~~
 - ~~rectangle~~/ellipse
 - thickness
@@ -104,6 +104,10 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * ~~I changed it so that it was basically just a translucent pencil —— looks watercolor-ish~~
   * ~~looks good only when marker is big~~
   * ~~should we rename it?~~
+
+  
+####Phase 2!!!!!!
+
 
 
 
