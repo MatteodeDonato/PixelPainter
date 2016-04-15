@@ -88,7 +88,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - ~~Jack's color sliders~~
 - ~~Emily's lines~~
 
-###~~What we need to accomplish *April 7* before due~~
+####~~What we need to accomplish *April 7* before due~~
 - ~~merge Matteo's dropper code w/ Jack's color setup~~
 - ~~add ellipses~~
 - ~~add triangles??~~
@@ -107,6 +107,15 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 
   
 ####Phase 2!!!!!!
+- 6 filters
+  * 1 with Perlin noise
+  * symmetry filters
+- get dropper to work well
+  * checkbox maybe?
+  * shoukd prhbably not be a link
+- gridlines turn off
+  * use switch
+
 
 
 
