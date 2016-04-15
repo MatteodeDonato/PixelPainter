@@ -85,10 +85,10 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - ~~save file as jpg or png~~
 
 ####to add to main branch:
-- Jack's color sliders
+- ~~Jack's color sliders~~
 - ~~Emily's lines~~
 
-###What we need to accomplish *April 7* before due
+###~~What we need to accomplish *April 7* before due~~
 - ~~merge Matteo's dropper code w/ Jack's color setup~~
 - ~~add ellipses~~
 - ~~add triangles??~~
