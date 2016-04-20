@@ -66,6 +66,14 @@ function makePaint() {
     mode = "paintbrush";
 }
 
+function makeWatercolor() {
+    mode = "watercolor";
+}
+
+function makeRibbon() {
+    mode = "ribbon";
+}
+
 function makeEraser() {
     mode = "eraser";
 }
@@ -182,6 +190,26 @@ function draw() {
                     stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 35);
                     strokeCap(SQUARE);
                     line(pmouseX, pmouseY, mouseX, mouseY);
+                }
+            }
+            break;
+        case "watercolor":
+              if (mouseIsPressed) {//watercolors
+                for (var i = -10; i <= 10; i++) {
+                    strokeWeight(random(3, 6));
+                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155));
+                    line(pmouseX + 2 * i, pmouseY + i, mouseX + 2 * i, mouseY + i);
+                }
+              }
+            break;
+        case "ribbon":
+            if (mouseIsPressed) {
+                for(var i=-10; i<=10; i++){
+                    stroke(colorSelected);
+                    strokeWeight(1);
+                    line(pmouseX+2*i, pmouseY, mouseX+2*i, mouseY);
+                    if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
+                        point(mouseX, mouseY);
                 }
             }
             break;
