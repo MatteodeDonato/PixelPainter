@@ -127,7 +127,7 @@ function saveImg(fileType) {
 
 function draw() {
 
-    document.getElementById("cursorTracker").innerHTML = "      (" + mouseX + "," + mouseY + ") ";
+    document.getElementById("cursorTracker").innerHTML = "\t(" + mouseX + "," + mouseY + ") ";
     r1 = r1Slider.value();
     g1 = g1Slider.value();
     b1 = b1Slider.value();
