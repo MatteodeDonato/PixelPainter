@@ -23,7 +23,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 > - **Pixel Tracker**: ​outputs the current position of the mouse cursor
 
 >#####Each group must also implement at least 3 of the following tools:
->  *brush (multiple style choices), paint bucket, stamp, triangle, Bezier curve, gridlines, text, spray can, clone tool, crop
+>  * brush (multiple style choices), paint bucket, stamp, triangle, Bezier curve, gridlines, text, spray can, clone tool, crop
 > - Users should be able to save their image in either the .png or .jpg format.
 
 > ####Part II: ​Add support for photos and filters
