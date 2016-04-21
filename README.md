@@ -116,6 +116,12 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - gridlines turn off
   * use switch
 - **FIX CANVAS**
+- sliders -- what do they mean?
+- decide on a design scheme
+  * buttons or links
+  * dark or light
+- **right click for color 2** 
+
 
 
 
