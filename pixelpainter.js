@@ -22,13 +22,16 @@ var fileType;
 var mode = "pencil"; //default mode is pencil
 var backColor = 255; //background color
 // var r, g, b, t;
-var grid = "none";
 
+
+var grid = "none";
+$("[name='my-checkbox']").bootstrapSwitch();
 function setup() {
     cursor(CROSS);
     frameRate(10002);
     createCanvas(1530, 400);
     background(255);
+
     r1Slider = createSlider(0, 255, r1);
     r1Slider.position(20, windowHeight - 65);
     g1Slider = createSlider(0, 255, g1);
@@ -38,7 +41,6 @@ function setup() {
     r1Slider.style('width', '200px');
     g1Slider.style('width', '200px');
     b1Slider.style('width', '200px');
-    //text("r1", )
 
     r2Slider = createSlider(0, 255, r2);
     r2Slider.position(300, windowHeight - 65);
@@ -58,6 +60,7 @@ function setup() {
     colorSelected = color1;
 }
 //to interact with HTML links
+//we should probably simplify this...
 function makePencil() {
     mode = "pencil";
 }
@@ -300,4 +303,40 @@ function mouseClicked() {
         endy = mouseY;
     }
     updateBuffer();
+}
+
+function flipPixH() {
+  loadPixels();
+  var d = pixelDensity();
+  var h = canvas.height * d, w = canvas.width * d;
+  for (var y = 0; y < h/2 * d; y++) {
+    for (var x = 0; x < w; x++) {
+      copyPix(x,y,x,h-y-1);
+    } //swap color information for each pixel
+
+  }
+  updatePixels();
+}
+
+function flipPixV(){
+  loadPixels();
+  var d = pixelDensity();
+  var h = canvas.height, w = canvas.width;
+  for (var x = 0; x < w/2 * d; x++){
+    for ( var y = 0; y < h; y++){
+      copyPix(x, y, w - x - 1, y);
+    }
+  }
+  updatePixels();
+}
+
+
+//copies pixel info from origin(x,y) -> dest(x,y)
+function copyPix(originX,originY,destX,destY) {
+  var origin = (originY * canvas.width + originX) * 4; //convert to 1D pixels index
+  var dest = (destY * width + destX) * 4;//convert to 1D pixels index
+  pixels[dest] = pixels[origin];
+  pixels[dest+1] = pixels[origin+1];
+  pixels[dest+2] = pixels[origin+2];
+  pixels[dest+3] = pixels[origin+3];
 }
