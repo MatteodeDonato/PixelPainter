@@ -25,7 +25,8 @@ var backColor = 255; //background color
 
 
 var grid = "none";
-$("[name='my-checkbox']").bootstrapSwitch();
+//$("[name='my-checkbox']").bootstrapSwitch();
+
 function setup() {
     cursor(CROSS);
     frameRate(10002);
@@ -120,6 +121,13 @@ function setColor2() {
     colorSelected = color2;
 }
 
+function makeWatercolor() {
+    mode = "watercolor";
+}
+
+function makeRibbon() {
+    mode = "ribbon";
+}
 
 
 //save file; specify type in parameters
@@ -185,6 +193,26 @@ function draw() {
                     stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 35);
                     strokeCap(SQUARE);
                     line(pmouseX, pmouseY, mouseX, mouseY);
+                }
+            }
+            break;
+        case "watercolor":
+              if (mouseIsPressed) {//watercolors
+                for (var i = -10; i <= 10; i++) {
+                    strokeWeight(random(3, 6));
+                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155));
+                    line(pmouseX + 2 * i, pmouseY + i, mouseX + 2 * i, mouseY + i);
+                }
+              }
+            break;
+        case "ribbon":
+            if (mouseIsPressed) {
+                for(var i=-10; i<=10; i++){
+                    stroke(colorSelected);
+                    strokeWeight(1);
+                    line(pmouseX+2*i, pmouseY, mouseX+2*i, mouseY);
+                    if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
+                        point(mouseX, mouseY);
                 }
             }
             break;
@@ -260,7 +288,7 @@ function draw() {
         //     }
         //     break;
     }
-}
+  }
 
 function updateBuffer() {
     if (grid == "display") {
@@ -309,7 +337,7 @@ function flipPixH() {
   loadPixels();
   var d = pixelDensity();
   var h = canvas.height * d, w = canvas.width * d;
-  for (var y = 0; y < h/2 * d; y++) {
+  for (var y = 0; y < h/2; y++) {
     for (var x = 0; x < w; x++) {
       copyPix(x,y,x,h-y-1);
     } //swap color information for each pixel
@@ -339,4 +367,20 @@ function copyPix(originX,originY,destX,destY) {
   pixels[dest+1] = pixels[origin+1];
   pixels[dest+2] = pixels[origin+2];
   pixels[dest+3] = pixels[origin+3];
+}
+
+
+function HELP(){
+  img = createImage(canvas.width, canvas.height);
+  loadPixels();
+  img.loadPixels();
+  for (i = 0; i < img.width; i++) {
+    for (j = 0; j < img.height; j++) {
+      img.set(i, j, )
+    }
+  }
+  img.updatePixels();
+  image(img, 0, 0);
+
+
 }
