@@ -8,7 +8,10 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link href="dist/css/flat-ui.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="style.css">
-<script language="javascript" type="text/javascript" src="p5.dom.js"></script>
+  <link href="bootstrap-switch.css" rel="stylesheet">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap-switch.js"></script>
+  <script language="javascript" type="text/javascript" src="p5.dom.js"></script>
   <script language="javascript" type="text/javascript" src="pixelpainter.js"></script>
 
   <title> Pixel Painter</title>
@@ -24,13 +27,13 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-01">
 
       <ul class="nav navbar-nav">
-        
-        <li><a onclick="makePencil()" id="pencil" href="#pencil">Pencil</a></li>
-        <li><a onclick="makeEraser()" id="eraser" href="#eraser">Eraser</a></li>
-        
+
+        <li><button class="btn btn-inverse" onclick="makePencil()" id="pencil" href="#pencil">Pencil</a></li>
+        <li><button class="btn btn-inverse" onclick="makeEraser()" id="eraser" href="#eraser">Eraser</a></li>
+
         <li>
           <div class="btn-group">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
               Brushes...
               <span class="caret"></span>
             </button>
@@ -45,12 +48,12 @@
         </li>
         <li>
           <div class="btn-group">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
               Shapes...
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu">
-              <li><a onclick="makeLine()" id="line" href="#line">Line</a></li>  
+              <li><a onclick="makeLine()" id="line" href="#line">Line</a></li>
               <li><a onclick="makeRectangle()" id="rectangle" href="#rectangle">Rectangle</a></li>
               <li><a onclick="makeEllipse()" id="ellipse" href="#ellipse">Ellipse</a></li>
               <li><a onclick="makeTriangle()" id="triangle" href="#triangle">Triangle</a></li>
@@ -61,7 +64,7 @@
           </li>
         <li>
           <div class="btn-group">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
               Colors...
               <span class="caret"></span>
             </button>
@@ -73,14 +76,9 @@
             </ul>
           </div>
         </li>
-
-        <li><div class="bootstrap-switch-square">
-        <input type="checkbox" checked data-toggle="switch" name="square-switch" id="switch-02" />
-            </div></li>  
-        
         <li>
           <div class="btn-group">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
               Save...
               <span class="caret"></span>
             </button>
@@ -92,9 +90,26 @@
             </ul>
           </div>
         </li>
-        <li class = ><a onclick="makeGridlines()" id="gridlines" href="#grid">Gridlines</a></li>
-        <li> <button class="btn btn-primary" onclick="makeDropper()" id="dropper" href="#drop">Dropper</button></li>
-        <li><p id="cursorTracker">                      cursor tracker</p></li>
+        <li>
+          <div class="btn-group">
+            <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
+            Filters...
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a onclick="flipPixV()" id="flipV" href="#line">Flip Vertical</a></li>
+              <li><a onclick="flipPixH()" id="flipH" href="#rectangle">Flip Horizontal</a></li>
+              <li><a onclick="makeEllipse()" id="ellipse" href="#ellipse">Kaleidoscope Flip</a></li>
+              <li><a onclick="makeTriangle()" id="triangle" href="#triangle">Triangle</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Cancel</a></li>
+            </ul>
+          </div>
+          </li>
+        <li class = "active"><button class="btn btn-inverse" onclick="makeGridlines()" id="gridlines" href="#grid">Gridlines</a></li>
+        <li> <button class="btn btn-inverse" onclick="makeDropper()" id="dropper" href="#drop">Dropper</button></li>
+        <li><p id="cursorTracker"> cursor tracker</p></li>
+        <li><input type="checkbox" name="my-checkbox" checked></li>
       </ul>
   </nav>
 
