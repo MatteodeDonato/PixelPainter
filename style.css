@@ -2,6 +2,7 @@ body {
     background-color: white;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
     cursor: crosshair;
+    overflow: hidden;
 }
 
 h1 {
