@@ -2,64 +2,6 @@ var myCanvas;
 var img;
 var pixels2 = [];
 
-function preload() {
-  img = loadImage("Tiger.jpg");
-}
-
-// function setup() { // setup() waits until preload() is done
-//   myCanvas = createCanvas(600, 400);
-//   myCanvas.parent('canvasContainer');
-//   img.resize(width, height);
-//   image(img, 0, 0, width, height);
-// }
-
-
-function flipHorizontal() {
-  loadPixels();
-  var row = 4 * img.width;//How many total spots in the pixels array
-                          //indicates a new row in the image
-  var collumn = 4 * img.height;
-
-  //go through half of the pixels
-  for (var j = 1; j <= img.height /2; j++) {//j is the row
-    var topPixel = row * (j - 1); //which row are we on?
-    var bottomPixel = row * (img.height - j);
-
-    for (var i = 0; i < row; i += 4) { //i is the column
-      pixels[bottomPixel + i] = pixels[topPixel + i]; //r
-      pixels[bottomPixel + i + 1] = pixels[topPixel + i + 1];//g
-      pixels[bottomPixel + i + 2] = pixels[topPixel + i + 2];//b
-      //pixels[bottomPixel + i + 3] = 255;//a
-
-    }//swap color information for each pixel
-
-  }
-
-  updatePixels();
-}
-
-
-function flipVertical() {
-
-	loadPixels();
-
-	for (var j = 0; j < img.height; j++){
-
-		for(var i = 0; i < (img.width * 4) / 2; i += 4){
-
-			leftPixel = pixels[i * j];
-			rightPixel = pixels[(img.width - i) * j];
-			pixels[rightPixel] = pixels[leftPixel];
-			pixels[rightPixel + 1] = pixels[leftPixel + 1];
-			pixels[rightPixel + 2] = pixels[leftPixel + 2];
-
-	}
-
-	}
-	console.log("OUIGAFSO UFSDGUF DGSYA S");
-	updatePixels();
-}
-
 
 function coolFilterThing() {
   loadPixels();
@@ -85,28 +27,6 @@ function coolFilterThing() {
 }
 
 
-function flip() {
-  loadPixels();
-  var row = 4 * img.width;//How many total spots in the pixels array
-                          //indicates a new row in the image
-
-  //go through half of the pixels
-  for (var j = 1; j <= img.height; j++) {//j is the row
-    var topPixel = row * (j - 1); //which row are we on?
-    var bottomPixel = row * (img.width  - j);
-
-    for (var i = 0; i < row; i += 4) { //i is the column
-      pixels[bottomPixel + i] = pixels[topPixel + i]; //r
-      pixels[bottomPixel + i + 1] = pixels[topPixel + i + 1];//g
-      pixels[bottomPixel + i + 2] = pixels[topPixel + i + 2];//b
-      //pixels[bottomPixel + i + 3] = 255;//a
-
-    }//swap color information for each pixel
-
-  }
-
-  updatePixels();
-}
 
 //copies pixel info from origin(x,y) -> dest(x,y)
 function copyPix(originX,originY,destX,destY) {
@@ -192,7 +112,7 @@ function swapVals(){
   updatePixels();
 }
 
-function noiseFilter(){
+function speckleLight(){
   loadPixels();
   console.log(pixels);
   for(var i = 0; i < pixels.length; i++){
@@ -205,7 +125,7 @@ function noiseFilter(){
 
 }
 
-function noiseFilter2(){
+function speckleDark(){
   loadPixels();
   console.log(pixels);
   for(var i = 0; i < pixels.length; i++){
@@ -254,9 +174,13 @@ function copyPix(originX,originY,destX,destY) {
   pixels[dest+3] = pixels[origin+3];
 }
 
+function quad(){
+ flipPixV();
+ flipPixH();
+}
 
 
 function keyPressed() {
-  noiseFilter();
+  filter3();
   return false;
 }
