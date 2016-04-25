@@ -136,7 +136,12 @@ function saveImg(fileType) {
 }
 
 function draw() {
-
+    if (mouseButton == LEFT){
+        setColor1();
+    }
+    if (mouseButton == RIGHT){
+        setColor2();
+    }
     document.getElementById("cursorTracker").innerHTML = "\t(" + mouseX + "," + mouseY + ") ";
     r1 = r1Slider.value();
     g1 = g1Slider.value();
