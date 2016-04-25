@@ -112,7 +112,6 @@ function makeGridlines() {
 
 function setColor1() {
     color1 = color(r1, g1, b1);
-
     colorSelected = color1;
 }
 
@@ -142,12 +141,15 @@ function draw() {
     r1 = r1Slider.value();
     g1 = g1Slider.value();
     b1 = b1Slider.value();
-
+    if(colorSelected==color1){
+        setColor1();
+    }
     r2 = r2Slider.value();
     g2 = g2Slider.value();
     b2 = b2Slider.value();
-
-
+    if(colorSelected==color2){
+        setColor2();
+    }
     t = tSlider.value();
     if(mode == "dropper"){
     if (mouseIsPressed && mouseX < windowWidth && mouseY < windowHeight - 200 && mouseX > 0 && mouseY > 0) {
