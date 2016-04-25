@@ -33,8 +33,8 @@ var grid = "none";
 
 function setup() {
     cursor(CROSS);
-    frameRate(10002);
-    createCanvas(1530, 400);
+    frameRate(100000000000007);
+    createCanvas(1500, 1000);
     background(255);
 
 //    r1Slider = createSlider(0, 255, r1);
@@ -145,7 +145,7 @@ function draw() {
      
     stroke(0);
     fill(255);
-    rect(10, 1530, 30, 30);
+    rect(10, 350, 30, 30);
   
     if (mouseButton == LEFT)  setColor1();
     if (mouseButton == RIGHT) setColor2();
@@ -169,7 +169,7 @@ function draw() {
 
     switch (mode) {
         case "pencil":
-            if (mouseIsPressed && mouseX < 1530 && mouseY < 400 - 30 && mouseX > 0 && mouseY > 0) {
+            if (mouseIsPressed && mouseX < 1530 && mouseY < 500 - 30 && mouseX > 0 && mouseY > 0) {
                 fill(colorSelected);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
@@ -177,7 +177,7 @@ function draw() {
             }
             break;
         case "marker":
-            if (mouseIsPressed && mouseX < 1530 && mouseY < 400 - 30 && mouseX > 0 && mouseY > 0) {
+            if (mouseIsPressed && mouseX < 1530 && mouseY < 500 - 30 && mouseX > 0 && mouseY > 0) {
                 blendMode(REPLACE);
                 strokeWeight(t + 20);
                 stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 5);
@@ -188,7 +188,7 @@ function draw() {
             }
             break;
         case "paintbrush":
-            if (mouseIsPressed && mouseX < 1530 && mouseY < 400 - 30 && mouseX > 0 && mouseY > 0) {
+            if (mouseIsPressed && mouseX < 1530 && mouseY < 500 - 30 && mouseX > 0 && mouseY > 0) {
                 for (var i = 10; i > 00; i--) {
                     strokeCap(ROUND);
                     line(pmouseX, pmouseY, mouseX, mouseY);
@@ -220,7 +220,7 @@ function draw() {
             }
             break;
         case "eraser":
-            if (mouseIsPressed && mouseX < 1530 && mouseY < 400 - 30 && mouseX > 0 && mouseY > 0) {
+            if (mouseIsPressed && mouseX < 1530 && mouseY < 500 - 30 && mouseX > 0 && mouseY > 0) {
                 strokeWeight(50);
                 stroke(backColor);
                 line(pmouseX, pmouseY, mouseX, mouseY);
@@ -232,7 +232,7 @@ function draw() {
             stroke(255, 0, 0);
             break;
         case "sprayCan":
-            if (mouseIsPressed && mouseX < 1530 && mouseY < 400 - 30 && mouseX > 0 && mouseY > 0) {
+            if (mouseIsPressed && mouseX < 1530 && mouseY < 500 - 30 && mouseX > 0 && mouseY > 0) {
                 strokeWeight(1);
                 for (var h = 0; h < 100; h++) {
                     var x = randomGaussian(mouseX, 15);
