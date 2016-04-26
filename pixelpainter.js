@@ -292,6 +292,7 @@ function draw() {
             break;
 
         case "dropper":
+                    if(mouseY>450){
             loadPixels();
             var c = color(get(mouseX, mouseY));
             fill(c);
@@ -299,8 +300,21 @@ function draw() {
             console.log(red(c), green(c), blue(c));
             rect(0, 0, 50, 50);
             dropping = true;
-            colorSelected = c;
-            break;
+            if(mouseIsPressed){
+              if(mouseButton == LEFT){
+              r1 = red(c);
+              g1 = green(c);
+              b1 = blue(c);
+              colorSelected = c;
+              }
+              if(mouseButton == RIGHT){
+              r2 = red(c);
+              g2 = green(c);
+              b2 = blue(c);
+              colorSelected = c;
+              }
+            }
+          }
     }
 }
 
