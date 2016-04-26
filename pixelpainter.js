@@ -147,17 +147,17 @@ function draw() {
 
     stroke(0);
     fill(255);
-    fill(palette[0]);
+    fill(255, 0, 0);
     rect(500, 550, 30, 30);
-    fill(palette[1]);
+    fill(0, 255, 0);
     rect(500, 500, 30, 30);
-    fill(palette[2]);
+    fill(0, 0, 255);
     rect(560, 550, 30, 30);
-    fill(palette[3]);
+    fill(0, 0, 0);
     rect(560, 500, 30, 30);
-    fill(palette[4]);
+    fill(255, 255, 255);
     rect(620, 550, 30, 30);
-    fill(palette[5]);
+    fill(100, 100, 100);
     rect(620, 500, 30, 30);
     noStroke();
 
@@ -180,6 +180,7 @@ function draw() {
         case "pencil":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
                 fill(colorSelected);
+                stroke(colorSelected);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
                     point(mouseX, mouseY);
@@ -292,6 +293,7 @@ function draw() {
             break;
 
         case "dropper":
+        if(mouseY>450){
             loadPixels();
             var c = color(get(mouseX, mouseY));
             fill(c);
@@ -299,8 +301,21 @@ function draw() {
             console.log(red(c), green(c), blue(c));
             rect(0, 0, 50, 50);
             dropping = true;
-            colorSelected = c;
-            break;
+            if(mouseIsPressed){
+              if(mouseButton == LEFT){
+              r1 = red(c);
+              g1 = green(c);
+              b1 = blue(c);
+              colorSelected = c;
+              }
+              if(mouseButton == RIGHT){
+              r2 = red(c);
+              g2 = green(c);
+              b2 = blue(c);
+              colorSelected = c;
+              }
+            }
+          }
     }
 }
 
