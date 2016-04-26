@@ -152,6 +152,34 @@ function speckleDark() {
 
 }
 
+function brokenTV() {
+  loadPixels();
+  for (var i = 0; i < width * 4 * height; i+=f/10) {
+    pixels[i] = pixels[i] * noise(pixels[i]);
+  }
+  updatePixels();
+
+}
+
+function silver() {
+  loadPixels();
+  var row = 4 * img.width; //How many total spots in the pixels array
+  //indicates a new row in the image?
+
+  //go through half of the pixels
+  for (var j = 1; j <= img.height; j++) { //j is the row
+    var currentRow = row * j; //which row are we on?
+
+    for (var i = 0; i < row; i += 4) { //i is the column
+      pixels[currentRow + row - i] = pixels[currentRow + row - i]; //r
+      pixels[currentRow + row - i + 1] = pixels[currentRow + row - i + 1]; //g
+      pixels[currentRow + row - i + 2] = pixels[currentRow + row - i + 2]; //b
+      pixels[currentRow + row - i + 3] = pixels[currentRow + row - i + 16+f/10]; //a
+    } //swap color information for each pixel
+  }
+  updatePixels();
+}
+
 function flipPixH() {
     loadPixels();
     var d = pixelDensity();
