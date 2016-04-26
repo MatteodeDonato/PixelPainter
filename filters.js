@@ -128,9 +128,9 @@ function swapVals() {
 function speckleLight() {
     loadPixels();
     console.log(pixels);
-    for (var i = 0; i < width * 8 * (height - 200); i++) {
+    for (var i = 0; i < width * 8 * (height - 700); i++) {
         if (pixels[i] != 255)
-            pixels[i] = pixels[i] * noise(pixels[i]) * f;
+        pixels[i] = pixels[i] * noise(pixels[i]) * f;
 
 
     }
@@ -142,7 +142,7 @@ function speckleLight() {
 function speckleDark() {
     loadPixels();
     console.log(pixels);
-    for (var i = 0; i < width * 8 * (height); i++) {
+    for (var i = 0; i < width * 8 * (height - 700); i++) {
         if (pixels[i] != 255)
             pixels[i] = pixels[i] * noise(pixels[i]) * f;
 
@@ -157,7 +157,7 @@ function flipPixH() {
     var d = pixelDensity();
     var h = canvas.height * d,
         w = canvas.width * d;
-    for (var y = 0; y < (h - 1000) / 2; y++) { //CHANGE "1000" to A BETTER VALUE!!!!
+    for (var y = 0; y < (h - 11500) / 2; y++) { //CHANGE "1000" to A BETTER VALUE!!!!
         for (var x = 0; x < w; x++) {
             copyPix(x, y, x, h - y - 1);
         } //swap color information for each pixel
@@ -171,8 +171,8 @@ function flipPixV() {
     var d = pixelDensity();
     var h = canvas.height,
         w = canvas.width;
-    for (var x = 0; x < w / 2 * d; x++) {
-        for (var y = 0; y < h - 1000; y++) { //CHANGE "1000" to A BETTER VALUE!!!!
+    for (var x = 0; x < w / 2; x++) {
+        for (var y = 0; y < h * d; y++) { //CHANGE "1000" to A BETTER VALUE!!!!
             copyPix(x, y, w - x - 1, y);
         }
     }
