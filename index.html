@@ -38,9 +38,8 @@
             <ul class="dropdown-menu" role="menu">
               <li><a onclick="makeSpray()" id="spraycan" href="#spraycan">Spray Can</a></li>
               <li><a onclick="makePaint()" id="paintbrush" href="#paintbrush">Paint Brush</a></li>
-              <li><a onclick="makeMarker()" id="marker" href="#watercolor">Watercolor</a></li>
               <li><a onclick="makeRibbon()" id="ribbon" href="#watercolor">Ribbon</a></li>
-              <li><a onclick="makeWatercolor()" id="marker" href="#watercolor">Marker</a></li>
+              <li><a onclick="makeWatercolor()" id="marker" href="#watercolor">Watercolor</a></li>
               <li class="divider"></li>
               <li><a href="#">Cancel</a></li>
             </ul>
@@ -99,10 +98,12 @@
             <ul class="dropdown-menu" role="menu">
               <li><a onclick="flipPixV()" id="flipV" href="#line">Flip Vertical</a></li>
               <li><a onclick="flipPixH()" id="flipH" href="#rectangle">Flip Horizontal</a></li>
-              <li><a onclick="quad()" id="quad" href="#ellipse">Kaleidoscope Flip</a></li>
+              <li class="divider"></li>
               <li><a onclick="speckleLight()" id="triangle" href="#triangle">Speckle Light</a></li>
               <li><a onclick="speckleDark()" id="triangle" href="#triangle">Speckle Dark</a></li>
-            <li><a onclick="makeTriangle()" id="triangle" href="#triangle">Repetitive RGB Swap</a></li>   <!-- should probably get a better name -->
+              <li class="divider"></li>
+             <li><a onclick="filter2(1)" id="triangle" href="#triangle">Tinge (Purple)</a></li>
+             <li><a onclick="filter2(2)" id="triangle" href="#triangle">Tinge (Green)</a></li>   <!-- should probably get a better name -->
               <li class="divider"></li>
               <li><a href="#">Cancel</a></li>
             </ul>
@@ -111,7 +112,6 @@
         <li class = "active"><button class="btn btn-inverse" onclick="makeGridlines()" id="gridlines" href="#grid">Gridlines</a></li>
         <li> <button class="btn btn-inverse" onclick="makeDropper()" id="dropper" href="#drop">Dropper</button></li>
         <li><p id="cursorTracker"> cursor tracker</p></li>
-        <li><input type="checkbox" name="my-checkbox" checked></li>
       </ul>
   </nav>
 
