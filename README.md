@@ -110,9 +110,9 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - 6 filters
   * 1 with Perlin noise
   * symmetry filters
-- get dropper to work well
-  * checkbox maybe?
-  * shoukd prhbably not be a link
+- ~~get dropper to work well~~
+  * ~~checkbox maybe?~~
+  * ~~shoukd prhbably not be a link~~
 - gridlines turn off
   * use switch
 - **FIX CANVAS**
@@ -120,7 +120,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - decide on a design scheme
   * buttons or links
   * dark or light
-- **right click for color 2** 
+- **~~right click for color 2~~** 
 
 
 
