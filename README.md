@@ -110,6 +110,13 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - 6 filters
   * 1 with Perlin noise
   * symmetry filters
+
+- FILTERS!!
+  * should not filter color palette
+  * 2 parameters for each filter!!!
+    * add another slider? — is the either/or sufficient?
+  * JACK WHERE ARE YOUR FILTERS!?!?!?
+
 - ~~get dropper to work well~~
   * ~~checkbox maybe?~~
   * ~~shoukd prhbably not be a link~~
@@ -117,7 +124,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * use switch
 - **~~FIX CANVAS~~**
 - sliders -- what do they mean?
-- ~~decide on a ~~design scheme
+- ~~decide on a design scheme~~
   * **buttons** or links
   * **dark** or light
 - **~~right click for color 2~~** 
