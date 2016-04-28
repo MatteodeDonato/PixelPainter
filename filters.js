@@ -54,11 +54,12 @@ function swapFilter() {
 
 }
 
-function filter2(p) {           //1 = purple, 2 = green
+function filter2() {
     loadPixels();
-    //var m = map(o, 0, 100, .5, 1);
-    for(var z = 0; z < p; z++){
-    for (var x = 0; x < canvas.width; x+=.5) {          //adjusts intensity (.5 -> 1)
+    var m = map(p1, 0, 100, .5, 1);
+    var c = map(p1, 0, 100, 1, 2);
+    for(var z = 0; z < c; z++){
+    for (var x = 0; x < canvas.width; x+=m) {          //adjusts intensity (.5 -> 1)
         for (var y = 0; y < canvas.height; y+=1) {      
             var origin = (y * canvas.width + x) * 8; //convert to 1D pixels index
             var dest = (y * width + x) * 8; //convert to 1D pixels index
@@ -71,6 +72,7 @@ function filter2(p) {           //1 = purple, 2 = green
     }
     updatePixels();
 }
+
 
 function filter3() {
     loadPixels();
