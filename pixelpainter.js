@@ -256,7 +256,6 @@ function draw() {
             }
             break;
         case "line":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0){
         stroke(color2);
         fill(color1);
             pixels = buffer;
@@ -267,10 +266,10 @@ function draw() {
             if (count % 2 == 1) {
                 line(startx, starty, mouseX, mouseY);
             }
-            }
+            
             break;
         case "rectangle":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0){
+            
             stroke(color2);
             fill(color1);
             pixels = buffer;
@@ -281,10 +280,9 @@ function draw() {
             if (count % 2 == 1) {
                 rect(startx, starty, mouseX - startx, mouseY - starty);
             }
-            }
             break;
         case "ellipse":
-           if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0){
+    
             stroke(color2);
             fill(color1);
             pixels = buffer;
@@ -293,10 +291,9 @@ function draw() {
                 //noStroke();
                 ellipse(startx, starty, 2.8 * (mouseX - startx), 2.8 * (mouseY - starty));
             }
-           }
+        
             break;
         case "triangle":
-            if(mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0){
         stroke(color2);
         fill(color1);
             pixels = buffer;
@@ -304,7 +301,6 @@ function draw() {
             if (count % 2 == 1) {
                 //noStroke();
                 triangle(startx, starty, startx, mouseY, mouseX, mouseY);
-            }
             }
             break;
 
