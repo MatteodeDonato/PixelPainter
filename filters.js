@@ -1,379 +1,224 @@
-var x = 0;
-var y = 0;
-var buffer;
-var count = 1;
-var startx = 0;
-var starty = 0;
-var endx = 0;
-var endy = 0;
-var r1 = 0;
-var g1 = 0;
-var b1 = 0;
-var r2 = 0;
-var g2 = 0;
-var b2 = 0;
-var t;
-var o;
-var f;
-var colorSelected;
-var color1;
-var color2;
-var mPixColor;
-var fileCount = 1;
-var fileType;
-var mode = "pencil"; //default mode is pencil
-var backColor = 255; //background color
-
-var palette = [];
-var paletteSelected;
+var myCanvas;
+var img;
+var pixels2 = [];
 
 
-
-var grid = "none";
-
-function setup() {
-    cursor(CROSS);
-    frameRate(60);
-    createCanvas(1500, 800);
-    background(255);
-
-    tSlider = createSlider(0, 255, 0);
-    tSlider.position(500, 530);
-    tSlider.style('width', '200px')
-
-    oSlider = createSlider(0, 255, 255);
-    oSlider.position(500, 550);
-    oSlider.style('width', '200px')
-
-    fSlider = createSlider(1, 100, 1);
-    fSlider.position(750, 530);
-    fSlider.style('width', '200px')
-
-    color1 = color(0, 0, 0);
-    color2 = color(0, 0, 0);
-    colorSelected = color1;
-    for (var i = 0; i < 6; i++) {
-        palette[i] = color(0, 0, 0);
-    }
-
-    colorMode(HSB, 200, 200, 200);
-    for (var h = 150; h > 0; h--) {
-        for (var s = 150; s > 0; s--) {
-            var y = map(s, 0, 100, 100, 0);
-            stroke(h, s, 150);
-            point(h + 200, y + 500);
-        }
-    }
-
-}
-
-function makePencil() {
-    mode = "pencil";
-}
-
-function makePaint() {
-    mode = "paintbrush";
-}
-
-function makeEraser() {
-    mode = "eraser";
-}
-
-function makeSpray() {
-    mode = "sprayCan";
-}
-
-function makeMarker() {
-    mode = "marker";
-}
-
-function makeLine() {
-    count = 1;
-    mode = "line";
-}
-
-function makeEllipse() {
-    count = 1;
-    mode = "ellipse";
-}
-
-function makeTriangle() {
-    count = 1;
-    mode = "triangle";
-}
-
-function makeRectangle() {
-    count = 1;
-    mode = "rectangle";
-}
-
-function makeDropper() {
-    mode = "dropper";
-}
-
-function makeGridlines() {
-    mode = "gridlines";
-}
-
-function setColor1() {
-    color1 = color(r1, g1, b1);
-    colorSelected = color1;
-}
-
-function setColor2() {
-    color2 = color(r2, g2, b2);
-    colorSelected = color2;
-}
-
-function makeWatercolor() {
-    mode = "watercolor";
-}
-
-function makeRibbon() {
-    mode = "ribbon";
-}
-
-
-//save file; specify type in parameters
-function saveImg(fileType) {
-    save("drawing" + fileCount + "." + fileType);
-    fileCount++;
-}
-
-function draw() {
-    //console.log(r1, g1, b1);
-    //console.log(r2, g2, b2);
-    colorMode(RGB, 255, 255, 255);
-
-    stroke(0);
-    fill(255);
-    fill(255, 0, 0);
-    rect(500, 550, 30, 30);
-    fill(0, 255, 0);
-    rect(500, 500, 30, 30);
-    fill(0, 0, 255);
-    rect(560, 550, 30, 30);
-    fill(0, 0, 0);
-    rect(560, 500, 30, 30);
-    fill(255, 255, 255);
-    rect(620, 550, 30, 30);
-    fill(100, 100, 100);
-    rect(620, 500, 30, 30);
-    noStroke();
-
-    if (mouseButton == LEFT) setColor1();
-    if (mouseButton == RIGHT) setColor2();
-
-    document.getElementById("cursorTracker").innerHTML = "\t(" + mouseX + "," + mouseY + ") ";
-
-
-    t = tSlider.value();
-    o = oSlider.value();
-    f = fSlider.value();
-
-    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
-
-    fill(red(colorSelected), green(colorSelected), blue(colorSelected), o);
-    strokeWeight(t + 10);
-
-    switch (mode) {
-        case "pencil":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
-                fill(colorSelected);
-                stroke(colorSelected);
-                line(pmouseX, pmouseY, mouseX, mouseY);
-                if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
-                    point(mouseX, mouseY);
-            }
-            break;
-        case "marker":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
-                blendMode(REPLACE);
-                strokeWeight(t + 20);
-                stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 5);
-                line(pmouseX, pmouseY, mouseX, mouseY);
-                if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
-                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 5);
-                point(mouseX, mouseY);
-            }
-            break;
-        case "paintbrush":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
-                for (var i = 10; i > 00; i--) {
-                    strokeCap(ROUND);
-                    line(pmouseX, pmouseY, mouseX, mouseY);
-                    strokeWeight(3 * i);
-                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 35);
-                    strokeCap(SQUARE);
-                    line(pmouseX, pmouseY, mouseX, mouseY);
-                }
-            }
-            break;
-        case "watercolor":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) { //watercolors
-                for (var i = -10; i <= 10; i++) {
-                    strokeWeight(random(3, 6));
-                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155));
-                    line(pmouseX + 2 * i, pmouseY + i, mouseX + 2 * i, mouseY + i);
-                }
-            }
-            break;
-        case "ribbon":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
-                for (var i = -10; i <= 10; i++) {
-                    stroke(colorSelected);
-                    strokeWeight(1);
-                    line(pmouseX + 2 * i, pmouseY, mouseX + 2 * i, mouseY);
-                    if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
-                        point(mouseX, mouseY);
-                }
-            }
-            break;
-        case "eraser":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
-                strokeWeight(50);
-                stroke(backColor);
-                line(pmouseX, pmouseY, mouseX, mouseY);
-                if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0) {
-                    point(mouseX, mouseY);
-                }
-                updateBuffer();
-            }
-            stroke(255, 0, 0);
-            break;
-        case "sprayCan":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
-                strokeWeight(1);
-                for (var h = 0; h < 100; h++) {
-                    var x = randomGaussian(mouseX, 15);
-                    var y = randomGaussian(mouseY, 15);
-                    for (var i = 0; i < 20; i++) {
-                        point(x, y);
-                    }
-                }
-                if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
-                    point(mouseX, mouseY);
-            }
-            break;
-        case "line":
-        stroke(color2);
-        fill(color1);
-            pixels = buffer;
-            updatePixels();
-            if (count % 2 == 0) {
-                line(startx, starty, endx, endy);
-            }
-            if (count % 2 == 1) {
-                line(startx, starty, mouseX, mouseY);
-            }
-            break;
-        case "rectangle":
-            stroke(color2);
-            fill(color1);
-            pixels = buffer;
-            updatePixels();
-            // if (count % 2 == 0) {
-            //     rect(startx, starty, endx - startx, endy - starty);
-            // }
-            if (count % 2 == 1) {
-                rect(startx, starty, mouseX - startx, mouseY - starty);
-            }
-            break;
-        case "ellipse":
-            stroke(color2);
-            fill(color1);
-            pixels = buffer;
-            updatePixels();
-            if (count % 2 == 1) {
-                //noStroke();
-                ellipse(startx, starty, 2.8 * (mouseX - startx), 2.8 * (mouseY - starty));
-            }
-            break;
-        case "triangle":
-        stroke(color2);
-        fill(color1);
-            pixels = buffer;
-            updatePixels();
-            if (count % 2 == 1) {
-                //noStroke();
-                triangle(startx, starty, startx, mouseY, mouseX, mouseY);
-            }
-            break;
-
-        case "dropper":
-        if(mouseY>450){
-            loadPixels();
-            var c = color(get(mouseX, mouseY));
-            fill(c);
-            stroke(c);
-            console.log(red(c), green(c), blue(c));
-            rect(0, 0, 50, 50);
-            dropping = true;
-            if(mouseIsPressed){
-              if(mouseButton == LEFT){
-              r1 = red(c);
-              g1 = green(c);
-              b1 = blue(c);
-              colorSelected = c;
-              }
-              if(mouseButton == RIGHT){
-              r2 = red(c);
-              g2 = green(c);
-              b2 = blue(c);
-              colorSelected = c;
-              }
-            }
-          }
-    }
-}
-
-function updateBuffer() {
-    if (grid == "display") {
-        for (var i = 0; i < width; i += 20) {
-            stroke(0);
-            strokeWeight(1);
-            line(i, height, i, 0);
-            line(width, i, 0, i);
-        }
-    }
+function coolFilterThing() {
     loadPixels();
-    buffer = pixels;
-    cursor(CROSS);
+    var row = 4 * img.width; //How many total spots in the pixels array
+    //indicates a new row in the image
+
+    //go through half of the pixels
+    for (var j = 1; j <= img.height; j++) { //j is the row
+        var topPixel = row * (j - 1); //which row are we on?
+        var bottomPixel = row * (img.height - j);
+
+        for (var i = 0; i < row; i += 4) { //i is the column
+            pixels[bottomPixel] = pixels[topPixel + i]; //r
+            pixels[bottomPixel + i + 1] = pixels[topPixel + i + 1]; //g
+            pixels[bottomPixel + i + 2] = pixels[topPixel + i + 2]; //b
+            //pixels[bottomPixel + i + 3] = 255;//a
+
+        } //swap color information for each pixel
+
+    }
+
+    updatePixels();
 }
 
-function mouseClicked() {
-    var c = color(get(mouseX, mouseY));
-    if (mode == "gridlines") {
-        if (grid == "display") {
-            grid = "none";
+
+
+//copies pixel info from origin(x,y) -> dest(x,y)
+function copyPix(originX, originY, destX, destY) {
+    var origin = (originY * canvas.width + originX) * 4; //convert to 1D pixels index
+    var dest = (destY * width + destX) * 4; //convert to 1D pixels index
+    pixels[dest] = pixels[origin];
+    pixels[dest + 1] = pixels[origin + 1];
+    pixels[dest + 2] = pixels[origin + 2];
+    pixels[dest + 3] = pixels[origin + 3];
+}
+
+
+function swapFilter() {
+    loadPixels();
+    //var origin = (originY * canvas.width + originX) * 4; //convert to 1D pixels index
+    for (var x = 0; x < canvas.width; x++) {
+        for (var y = 0; y < canvas.height; y++) {
+            copyPix(x, y, x * 2 + 5, y * 2 + 5);
+
         }
-        if (grid == "none") {
-            grid = "display";
+
+    }
+    updatePixels();
+
+
+}
+
+function filter2(p) {           //1 = purple, 2 = green
+    loadPixels();
+    //var m = map(o, 0, 100, .5, 1);
+    for(var z = 0; z < p; z++){
+    for (var x = 0; x < canvas.width; x+=.5) {          //adjusts intensity (.5 -> 1)
+        for (var y = 0; y < canvas.height; y+=1) {      
+            var origin = (y * canvas.width + x) * 8; //convert to 1D pixels index
+            var dest = (y * width + x) * 8; //convert to 1D pixels index
+            pixels[dest] = pixels[origin + 1];
+            pixels[dest + 1] = pixels[origin + 2];
+            pixels[dest + 2] = pixels[origin];
+            pixels[dest + 3] = 255;
         }
     }
-    count++;
-    if (count % 2 == 1) {
-        startx = mouseX;
-        starty = mouseY;
     }
-    if (count % 2 == 0) {
-        endx = mouseX;
-        endy = mouseY;
+    updatePixels();
+}
+
+function filter3() {
+    loadPixels();
+    for (var x = 0; x < canvas.width * .5; x++) {
+        for (var y = 0; y < canvas.height - 300; y++) {
+            var origin = (y * canvas.width + x) * 4; //convert to 1D pixels index
+            var dest = (y * canvas.width + x) * 4; //convert to 1D pixels index
+            pixels[dest] = pixels[origin + 1];
+            pixels[dest + 1] = pixels[origin + 2];
+            pixels[dest + 2] = pixels[origin];
+            pixels[dest + 3] = pixels[origin + 3];
+        }
     }
-    updateBuffer();
-    if (mouseX > 1000 && mouseX < 1200 && mouseY > 100 && mouseY < 300) {
-        loadPixels();
-        var c = color(get(mouseX, mouseY));
-        console.log(red(c), green(c), blue(c));
-        if (colorSelected == color1)
-            color1 = c;
-        if (colorSelected == color2)
-            color2 = c;
+    updatePixels();
+}
+
+
+
+
+
+function filter4() {
+    loadPixels();
+    for (var x = 0; x < canvas.width - 1000; x++) {
+        for (var y = 0; y < canvas.height; y++) {
+            var origin = (y * canvas.width + x) * 4; //convert to 1D pixels index
+            var dest = (y * width + x) * 8; //convert to 1D pixels index
+            pixels[dest] = pixels[origin + 3];
+            pixels[dest + 1] = pixels[origin + 2];
+            pixels[dest + 2] = pixels[origin + 1];
+            pixels[dest + 3] = 255;
+        }
     }
-
-    if (mouseX > 1020 && mouseX < 1050 && mouseY < 500 && mouseX < 550)
-        palette[i] = c;
-
+    updatePixels();
+}
 
 
+
+function swapVals() {
+    loadPixels();
+    arrayCopy(pixels, pixels2);
+    for (var i = 0; i < pixels.length; i++)
+        pixels[i] = pixels2[pixels.length - i];
+    updatePixels();
+}
+
+// function speckleLight(){
+//   loadPixels();
+//   for(var i = 0; i < pixels.length - 1000 * 4; i++)
+//     pixels[i] = pixels[i] / noise(pixels[i]);
+//
+//   updatePixels();
+//
+// }
+
+function speckleLight() {
+    loadPixels();
+    console.log(pixels);
+    for (var i = 0; i < width * 8 * (height - 600); i++) {
+        if (pixels[i] != 255)
+            pixels[i] = pixels[i] * noise(pixels[i]) * f;
+
+
+    }
+    updatePixels();
+
+}
+
+
+function speckleDark() {
+    loadPixels();
+    console.log(pixels);
+    for (var i = 0; i < width * 8 * (height - 600); i++) {
+        if (pixels[i] != 255)
+            pixels[i] = pixels[i] * noise(pixels[i]) * f;
+
+
+    }
+    updatePixels();
+
+}
+
+function brokenTV() {
+  loadPixels();
+  for (var i = 0; i < width * 4 * height; i+=f/10) {
+    pixels[i] = pixels[i] * noise(pixels[i]);
+  }
+  updatePixels();
+
+}
+
+function silver() {
+  loadPixels();
+  var row = 4 * img.width; //How many total spots in the pixels array
+  //indicates a new row in the image?
+
+  //go through half of the pixels
+  for (var j = 1; j <= img.height; j++) { //j is the row
+    var currentRow = row * j; //which row are we on?
+
+    for (var i = 0; i < row; i += 4) { //i is the column
+      pixels[currentRow + row - i] = pixels[currentRow + row - i]; //r
+      pixels[currentRow + row - i + 1] = pixels[currentRow + row - i + 1]; //g
+      pixels[currentRow + row - i + 2] = pixels[currentRow + row - i + 2]; //b
+      pixels[currentRow + row - i + 3] = pixels[currentRow + row - i + 16+f/10]; //a
+    } //swap color information for each pixel
+  }
+  updatePixels();
+}
+
+function flipPixH() {
+    loadPixels();
+    var d = pixelDensity();
+    var h = canvas.height * d,
+        w = canvas.width * d;
+    for (var y = 0; y < (h - 1000) / 2; y++) { //CHANGE "1000" to A BETTER VALUE!!!!
+        for (var x = 0; x < w; x++) {
+            copyPix(x, y, x, h - y - 1);
+        } //swap color information for each pixel
+
+    }
+    updatePixels();
+}
+
+function flipPixV() {
+    loadPixels();
+    var d = pixelDensity();
+    var h = canvas.height,
+        w = canvas.width;
+    for (var x = 0; x < w / 2 * d; x++) {
+        for (var y = 0; y < h - 1000; y++) { //CHANGE "1000" to A BETTER VALUE!!!!
+            copyPix(x, y, w - x - 1, y);
+        }
+    }
+    updatePixels();
+}
+
+
+//copies pixel info from origin(x,y) -> dest(x,y)
+function copyPix(originX, originY, destX, destY) {
+    var origin = (originY * canvas.width + originX) * 4; //convert to 1D pixels index
+    var dest = (destY * width + destX) * 4; //convert to 1D pixels index
+    pixels[dest] = pixels[origin];
+    pixels[dest + 1] = pixels[origin + 1];
+    pixels[dest + 2] = pixels[origin + 2];
+    pixels[dest + 3] = pixels[origin + 3];
+}
+
+function quad() {
+    flipPixV();
+    flipPixH();
 }
