@@ -147,17 +147,17 @@ function draw() {
 
     stroke(0);
     fill(255);
-    fill(palette[0]);
+    fill(255, 0, 0);
     rect(500, 550, 30, 30);
-    fill(palette[1]);
+    fill(0, 255, 0);
     rect(500, 500, 30, 30);
-    fill(palette[2]);
+    fill(0, 0, 255);
     rect(560, 550, 30, 30);
-    fill(palette[3]);
+    fill(0, 0, 0);
     rect(560, 500, 30, 30);
-    fill(palette[4]);
+    fill(255, 255, 255);
     rect(620, 550, 30, 30);
-    fill(palette[5]);
+    fill(100, 100, 100);
     rect(620, 500, 30, 30);
     noStroke();
 
@@ -180,6 +180,7 @@ function draw() {
         case "pencil":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
                 fill(colorSelected);
+                stroke(colorSelected);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
                     point(mouseX, mouseY);
@@ -255,6 +256,8 @@ function draw() {
             }
             break;
         case "line":
+        stroke(color2);
+        fill(color1);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 0) {
@@ -265,6 +268,8 @@ function draw() {
             }
             break;
         case "rectangle":
+            stroke(color2);
+            fill(color1);
             pixels = buffer;
             updatePixels();
             // if (count % 2 == 0) {
@@ -275,24 +280,28 @@ function draw() {
             }
             break;
         case "ellipse":
+            stroke(color2);
+            fill(color1);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 1) {
-                noStroke();
+                //noStroke();
                 ellipse(startx, starty, 2.8 * (mouseX - startx), 2.8 * (mouseY - starty));
             }
             break;
         case "triangle":
+        stroke(color2);
+        fill(color1);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 1) {
-                noStroke();
+                //noStroke();
                 triangle(startx, starty, startx, mouseY, mouseX, mouseY);
             }
             break;
 
         case "dropper":
-                    if(mouseY>450){
+        if(mouseY>450){
             loadPixels();
             var c = color(get(mouseX, mouseY));
             fill(c);
