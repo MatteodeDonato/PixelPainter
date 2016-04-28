@@ -14,7 +14,7 @@ var g2 = 0;
 var b2 = 0;
 var t;
 var o;
-var f;
+var p1, p2;
 var colorSelected;
 var color1;
 var color2;
@@ -39,22 +39,23 @@ function setup() {
 
     tSlider = createSlider(0, 255, 0);
     tSlider.position(500, 530);
-    tSlider.style('width', '200px')
+    tSlider.style('width', '200px');
 
     oSlider = createSlider(0, 255, 255);
     oSlider.position(500, 550);
-    oSlider.style('width', '200px')
+    oSlider.style('width', '200px');
 
-    fSlider = createSlider(1, 100, 1);
-    fSlider.position(750, 530);
-    fSlider.style('width', '200px')
+    p1Slider = createSlider(1, 100, 1);
+    p1Slider.position(750, 530);
+    p1Slider.style('width', '200px');
+    
+    p2Slider = createSlider(1, 100, 1);
+    p2Slider.position(750, 530);
+    p2Slider.style('width', '200px')
 
     color1 = color(0, 0, 0);
     color2 = color(0, 0, 0);
     colorSelected = color1;
-    for (var i = 0; i < 6; i++) {
-        palette[i] = color(0, 0, 0);
-    }
 
     colorMode(HSB, 200, 200, 200);
     for (var h = 150; h > 0; h--) {
@@ -169,7 +170,8 @@ function draw() {
 
     t = tSlider.value();
     o = oSlider.value();
-    f = fSlider.value();
+    p1 = p1Slider.value();
+    p2 = p2Slider.value();
 
     stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
 
