@@ -18,7 +18,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 > - **Line**:​draws a straight line between two points. Use double buffering to see the “growth”.
 > - **Thickness**: ​changes the thickness of lines, the outlines of shapes, the diameter of the pencil/brush
 > - **Color**: ​color 1, color 2, default palette, custom palette, extension: option for transparency
-> - **Droplet**:​​replace color 1 or color 2 with the color of the selected pixel based on which mouse button is pressed. 
+> - **Droplet**:​​replace color 1 or color 2 with the color of the selected pixel based on which mouse button is pressed.
 > Icon changes to eye droplet.
 > - **Pixel Tracker**: ​outputs the current position of the mouse cursor
 
@@ -29,11 +29,11 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 > ####Part II: ​Add support for photos and filters
 > - **Extension**: Users should be able to open a .jpg, .png, or .gif image to add to the canvas. Incorrect file types should > output an error message and not cause the program to crash.
 > - **Extension**: Implement your own image format. Save 24­bit color information for your entire canvas. Allow users to load >or save images in this format.
-> - **Implement at least six non­trivial photo filters (two per person).** At least one filter per person must incorporate 
+> - **Implement at least six non­trivial photo filters (two per person).** At least one filter per person must incorporate
 > *Perlin noise*. Do not use the built­in P5 filters. Your
-> filters should be significantly more advanced than the filters from the Technology: Creativity class. Feel free to add 
+> filters should be significantly more advanced than the filters from the Technology: Creativity class. Feel free to add
 > other basic filters (like b&W, warm/cool) to
-> your project, but you won’t receive credit for implementing those filters. Allow the user to control at least two 
+> your project, but you won’t receive credit for implementing those filters. Allow the user to control at least two
 > parameters of each filter.
 > - **Possible filters include:**
 > - Pixelate/Pointillize
@@ -51,20 +51,31 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 > - **Extension​**: Add professional features. (depending on time, probably optional since only one group got to it last year)
 >­Select, resize, rotate, zoom, layers, canvas size
 
-###Our Progress
 
-####Tools
-- **Watercolor** 
+
+###Tools
 - **Pencil**
   * default mode
+  * draws simple strokes
 - **Eraser**
-- **Spray Can**
-- **Paintbrush**
-- **Line**
-  * click to define the first point, and click again to define endpoint
-- **Rectangle**
-  * click to define one point and click again to define its opposite
-- **Dropper** 
+  * removes strokes
+  * thicker than pencil
+
+- **Brushes**
+  * *Spray Can*
+    * press and hold to spray
+    * draws points around cursor
+  * *Paintbrush*
+    * simulates a paintbrush
+    * EMILY HOW DOES THIS ONE WORK AGAIN!?!?!?
+- **Shapes**
+  * *Line*
+    * click to define the first point, and click again to define endpoint
+    * utilizes double-buffering for growth
+  * *Rectangle*
+    * click to define one point and click again to define its opposite
+    * utilizes double-buffering for growth
+- **Dropper**
   * to replace one of the color spots with a color on your canvas, click dropper, click the color you want, and then double click the color spot you wish to replace.
   * the dropper uses the ```pixels[]``` array built into *pfjs*
   * doesn't work if you have sliders —— sliders automatically resetting color you change it to
@@ -80,8 +91,8 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - ~~line (growing) -- Emily will upload~~
 - ~~rectangle~~/ellipse
 - thickness
-- ~~*dropper*~~ —— does not work on retina `displayDensity` 
-  * should be fine; computers in lab are normal density 
+- ~~*dropper*~~ —— does not work on retina `displayDensity`
+  * should be fine; computers in lab are normal density
 - ~~save file as jpg or png~~
 
 ####to add to main branch:
@@ -105,31 +116,19 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * ~~looks good only when marker is big~~
   * ~~should we rename it?~~
 
-  
+
 ####Phase 2!!!!!!
 - 6 filters
   * 1 with Perlin noise
   * symmetry filters
-
-- FILTERS!!
-  * should not filter color palette
-  * 2 parameters for each filter!!!
-    * add another slider? — is the either/or sufficient?
-  * JACK WHERE ARE YOUR FILTERS!?!?!?
-
-- ~~get dropper to work well~~
-  * ~~checkbox maybe?~~
-  * ~~shoukd prhbably not be a link~~
+- get dropper to work well
+  * checkbox maybe?
+  * shoukd prhbably not be a link
 - gridlines turn off
   * use switch
-- **~~FIX CANVAS~~**
+- **FIX CANVAS**
 - sliders -- what do they mean?
-- ~~decide on a design scheme~~
-  * **buttons** or links
-  * **dark** or light
-- **~~right click for color 2~~** 
-
-
-
-
-
+- decide on a design scheme
+  * buttons or links
+  * dark or light
+- **right click for color 2**
