@@ -114,12 +114,12 @@ function makeGridlines() {
 }
 
 function setColor1() {
-    color1 = color(r1, g1, b1, a1);
+    color1 = color(r1, g1, b1, o);
     colorSelected = color1;
 }
 
 function setColor2() {
-    color2 = color(r2, g2, b2, a1);
+    color2 = color(r2, g2, b2, o);
     colorSelected = color2;
 }
 
@@ -142,7 +142,7 @@ function draw() {
     //console.log(r1, g1, b1);
     //console.log(r2, g2, b2);
     colorMode(RGB, 255, 255, 255);
-    fill(50, 50, 75);
+    fill(44,62,80);
     rect(0, 400, width, 300);
     stroke(0);
     fill(255);
@@ -305,6 +305,7 @@ function draw() {
               b1 = blue(c);
               a1 = o;
               colorSelected = c;
+              console.log(r1, g1, b1);
               }
               if(mouseButton == RIGHT){
               r2 = red(c);
@@ -368,7 +369,4 @@ function mouseClicked() {
 
     if (mouseX > 1020 && mouseX < 1050 && mouseY < 500 && mouseX < 550)
         palette[i] = c;
-
-
-
 }
