@@ -67,7 +67,6 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
     * draws points around cursor
   * *Paintbrush*
     * simulates a paintbrush
-    * EMILY HOW DOES THIS ONE WORK AGAIN!?!?!?
   * *Watercolor*
     * watercolor-effect brush
     * for best results, lower opacity
@@ -115,7 +114,3 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * parameter: *light or dark*
   * parameter: 
   * 
- 
-##TO ADD, MATTEO: NOISE FILTER -> FINENESS
-ITERATOR OF THE FOR LOOP
-
