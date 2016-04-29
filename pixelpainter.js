@@ -9,6 +9,7 @@ var endy = 0;
 var r1 = 0;
 var g1 = 0;
 var b1 = 0;
+var a1 = 255;
 var r2 = 0;
 var g2 = 0;
 var b2 = 0;
@@ -27,8 +28,6 @@ var backColor = 255; //background color
 var palette = [];
 var paletteSelected;
 
-
-
 var grid = "none";
 
 function setup() {
@@ -45,9 +44,13 @@ function setup() {
     oSlider.position(500, 550);
     oSlider.style('width', '200px')
 
-    fSlider = createSlider(1, 100, 1);
-    fSlider.position(750, 530);
-    fSlider.style('width', '200px')
+    p1Slider = createSlider(1, 100, 1);
+    p1Slider.position(750, 530);
+    p1Slider.style('width', '200px');
+
+    p2Slider = createSlider(1, 100, 1);
+    p2Slider.position(750, 550);
+    p2Slider.style('width', '200px');
 
     color1 = color(0, 0, 0);
     color2 = color(0, 0, 0);
@@ -83,10 +86,6 @@ function makeSpray() {
     mode = "sprayCan";
 }
 
-function makeMarker() {
-    mode = "marker";
-}
-
 function makeLine() {
     count = 1;
     mode = "line";
@@ -116,12 +115,12 @@ function makeGridlines() {
 }
 
 function setColor1() {
-    color1 = color(r1, g1, b1);
+    color1 = color(r1, g1, b1, a1);
     colorSelected = color1;
 }
 
 function setColor2() {
-    color2 = color(r2, g2, b2);
+    color2 = color(r2, g2, b2, a1);
     colorSelected = color2;
 }
 
@@ -169,7 +168,8 @@ function draw() {
 
     t = tSlider.value();
     o = oSlider.value();
-    f = fSlider.value();
+    p1 = p1Slider.value();
+    p2 = p2Slider.value();
 
     stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
 
@@ -179,27 +179,18 @@ function draw() {
     switch (mode) {
         case "pencil":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
-                fill(colorSelected);
-                stroke(colorSelected);
+                fill(red(colorSelected), green(colorSelected), blue(colorSelected), o);
+                stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
                     point(mouseX, mouseY);
             }
             break;
-        case "marker":
-            if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
-                blendMode(REPLACE);
-                strokeWeight(t + 20);
-                stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 5);
-                line(pmouseX, pmouseY, mouseX, mouseY);
-                if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
-                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), 5);
-                point(mouseX, mouseY);
-            }
-            break;
         case "paintbrush":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
                 for (var i = 10; i > 00; i--) {
+                    fill(red(colorSelected), green(colorSelected), blue(colorSelected), o);
+                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
                     strokeCap(ROUND);
                     line(pmouseX, pmouseY, mouseX, mouseY);
                     strokeWeight(3 * i);
@@ -212,8 +203,8 @@ function draw() {
         case "watercolor":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) { //watercolors
                 for (var i = -10; i <= 10; i++) {
-                    strokeWeight(random(3, 6));
-                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155));
+                    strokeWeight(t/50+random(3, 6));
+                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155)+o/2);
                     line(pmouseX + 2 * i, pmouseY + i, mouseX + 2 * i, mouseY + i);
                 }
             }
@@ -221,9 +212,10 @@ function draw() {
         case "ribbon":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
                 for (var i = -10; i <= 10; i++) {
-                    stroke(colorSelected);
-                    strokeWeight(1);
-                    line(pmouseX + 2 * i, pmouseY, mouseX + 2 * i, mouseY);
+                    fill(red(colorSelected), green(colorSelected), blue(colorSelected), o);
+                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
+                    strokeWeight(1/50+t/25);
+                    line(pmouseX + 2 * i*t*5/100, pmouseY, mouseX + 2 * i*t*5/100, mouseY);
                     if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
                         point(mouseX, mouseY);
                 }
@@ -244,11 +236,13 @@ function draw() {
         case "sprayCan":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
                 strokeWeight(1);
+                fill(red(colorSelected), green(colorSelected), blue(colorSelected), o);
+                stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
                 for (var h = 0; h < 100; h++) {
                     var x = randomGaussian(mouseX, 15);
                     var y = randomGaussian(mouseY, 15);
                     for (var i = 0; i < 20; i++) {
-                        point(x, y);
+                        ellipse(x, y, .5+ t/25, .5+t/25);
                     }
                 }
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
@@ -256,8 +250,8 @@ function draw() {
             }
             break;
         case "line":
-        stroke(color2);
-        fill(color1);
+        stroke(color1);
+        fill(color2);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 0) {
@@ -266,36 +260,32 @@ function draw() {
             if (count % 2 == 1) {
                 line(startx, starty, mouseX, mouseY);
             }
-            
             break;
         case "rectangle":
-            
-            stroke(color2);
-            fill(color1);
+            strokeWeight(t/25+5);
+            stroke(color1);
+            fill(color2);
             pixels = buffer;
             updatePixels();
-            // if (count % 2 == 0) {
-            //     rect(startx, starty, endx - startx, endy - starty);
-            // }
             if (count % 2 == 1) {
                 rect(startx, starty, mouseX - startx, mouseY - starty);
             }
             break;
         case "ellipse":
-    
-            stroke(color2);
-            fill(color1);
+            strokeWeight(t/25+5);
+            stroke(color1);
+            fill(color2);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 1) {
                 //noStroke();
                 ellipse(startx, starty, 2.8 * (mouseX - startx), 2.8 * (mouseY - starty));
             }
-        
             break;
         case "triangle":
-        stroke(color2);
-        fill(color1);
+            strokeWeight(t/25+5);
+            stroke(color1);
+            fill(color2);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 1) {
@@ -305,28 +295,30 @@ function draw() {
             break;
 
         case "dropper":
-        if(mouseY>450){
+        if(mouseY>1){
             loadPixels();
             var c = color(get(mouseX, mouseY));
-            fill(c);
-            stroke(c);
             console.log(red(c), green(c), blue(c));
-            rect(0, 0, 50, 50);
             dropping = true;
             if(mouseIsPressed){
               if(mouseButton == LEFT){
               r1 = red(c);
               g1 = green(c);
               b1 = blue(c);
+              a1 = o;
               colorSelected = c;
               }
               if(mouseButton == RIGHT){
               r2 = red(c);
               g2 = green(c);
               b2 = blue(c);
+              a1 = o;
               colorSelected = c;
               }
             }
+            noStroke();
+            fill(colorSelected);
+            rect(0, 0, 50, 50);
           }
     }
 }
