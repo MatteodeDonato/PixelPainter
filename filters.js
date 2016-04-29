@@ -54,10 +54,11 @@ function swapFilter() {
 
 }
 
-function filter2(p) {
+function filter2() {
     loadPixels();
-    var m = map(o, 0, 100, .5, 1);
-    for(var z = 0; z < p; z++){
+    var m = map(p1, 1, 100, .5, 1);
+    var n = map(p2, 1, 100, 1, 2);
+    for(var z = 0; z < n; z++){
     for (var x = 0; x < canvas.width; x+=m) {
         for (var y = 0; y < canvas.height - 300; y+=m) {
             var origin = (y * canvas.width + x) * 8; //convert to 1D pixels index
@@ -198,7 +199,7 @@ function speckleLight() {
 
 }
 
-function speckle(p1, p2){
+function speckle(){
   var mode = map(p1, 1, 100, 1, 2);
   if(mode == 1) speckleDark();
   else if(mode == 2) speckleLight()
