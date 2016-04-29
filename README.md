@@ -87,5 +87,35 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
     * draws a two-point triangle
 
 ####Color
+- Dropper
+  * select the dropper tool in the toolbar
+  * click on the color you woul like to choose
+    * left-click will set it to color 1
+    * right-click will set it to color 2
+- Drawing in different colors
+  * left-click to draw in color 1
+  * right-click to draw in color 2
+  * both colors default to ```0, 0, 0```
+- Color palette
+  * color palette is hue on the x-axis and saturation on the y-axis
 
 ####Filters
+- Tinge
+  * shifts ```(r, g, b)``` values of each of the pixels
+  * parameter: *intensity*
+    * how many of the pixels are changed
+    * the more densly the pixels are changed, will look more intense
+    * if less, it will give just a slight undertone
+  * parameter: *number of times values are shifted*
+    * if slider is at the left, shifts values once
+    * right, twice
+- Speckle
+  * uses *Perlin noise algorithm*
+  * gives a grainy feel
+  * parameter: *light or dark*
+  * parameter: 
+  * 
+ 
+##TO ADD, MATTEO: NOISE FILTER -> FINENESS
+ITERATOR OF THE FOR LOOP
+
