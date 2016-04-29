@@ -51,9 +51,9 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 > - **Extension​**: Add professional features. (depending on time, probably optional since only one group got to it last year)
 >­Select, resize, rotate, zoom, layers, canvas size
 
+###Features
 
-
-###Tools
+####Tools
 - **Pencil**
   * default mode
   * draws simple strokes
@@ -68,6 +68,12 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * *Paintbrush*
     * simulates a paintbrush
     * EMILY HOW DOES THIS ONE WORK AGAIN!?!?!?
+  * *Watercolor*
+    * watercolor-effect brush
+    * for best results, lower opacity
+  * *Ribbon*
+    * draws several parallel lines
+    * looks like a 3D Ribbon
 - **Shapes**
   * *Line*
     * click to define the first point, and click again to define endpoint
@@ -75,60 +81,11 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * *Rectangle*
     * click to define one point and click again to define its opposite
     * utilizes double-buffering for growth
-- **Dropper**
-  * to replace one of the color spots with a color on your canvas, click dropper, click the color you want, and then double click the color spot you wish to replace.
-  * the dropper uses the ```pixels[]``` array built into *pfjs*
-  * doesn't work if you have sliders —— sliders automatically resetting color you change it to
-  * need to find a way to change slider values
-- **Color 1 & Color2**  
-  * to select, **double click**. Default value of both is ```(0, 0, 0)```.
-- **Color Sliders**
-  * the first collumn sets the r, g, and b value for color 1
-  * the seconf collumn sets the r, g, and b value for color 2
-  * the lone slider adjusts the thickness
+  * *Ellipse*
+    * draws an ellipse
+  * *Triangle*
+    * draws a two-point triangle
 
-####~~Phase 1~~
-- ~~line (growing) -- Emily will upload~~
-- ~~rectangle~~/ellipse
-- thickness
-- ~~*dropper*~~ —— does not work on retina `displayDensity`
-  * should be fine; computers in lab are normal density
-- ~~save file as jpg or png~~
+####Color
 
-####to add to main branch:
-- ~~Jack's color sliders~~
-- ~~Emily's lines~~
-
-####~~What we need to accomplish *April 7* before due~~
-- ~~merge Matteo's dropper code w/ Jack's color setup~~
-- ~~add ellipses~~
-- ~~add triangles??~~
-  * ~~we need another tool — can we use code for rectangle?~~
-- ~~thickness~~
- * ~~Jack do you have this already?~~
-- dropper is kind of weird — works but have to double click
-  * also, need cursor icon
-  * Emily has it for other tools
-- ~~what to do about the marker~~
-  * ~~requirements say 3 alternate brushes —~~
-  * ~~marker was just larger pencil~~
-  * ~~I changed it so that it was basically just a translucent pencil —— looks watercolor-ish~~
-  * ~~looks good only when marker is big~~
-  * ~~should we rename it?~~
-
-
-####Phase 2!!!!!!
-- 6 filters
-  * 1 with Perlin noise
-  * symmetry filters
-- get dropper to work well
-  * checkbox maybe?
-  * shoukd prhbably not be a link
-- gridlines turn off
-  * use switch
-- **FIX CANVAS**
-- sliders -- what do they mean?
-- decide on a design scheme
-  * buttons or links
-  * dark or light
-- **right click for color 2**
+####Filters
