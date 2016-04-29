@@ -172,11 +172,11 @@ function swapVals() {
 function speckleDark() {
   console.log("SPECKLE DARK");
     loadPixels();
-    var contrast = map(p2, 1, 100, .1, 1)
+    var contrast = map(p2, 1, 100, .5, 3)
     //console.log(pixels);
-    for (var i = 0; i < width * 8 * (height - 300); i++) {
+    for (var i = 0; i < width * 8 * (height - 300); i+=contrast) {
         if (pixels[i] != 255)
-            pixels[i] = pixels[i] / noise(pixels[i]) * contrast;
+            pixels[i] = pixels[i] / noise(pixels[i]);
 
 
     }
@@ -187,11 +187,11 @@ function speckleDark() {
 function speckleLight() {
     console.log("SPECKLE LIGHT");
     loadPixels();
-    var contrast = map(p2, 1, 100, .1, 1)
+    var contrast = map(p2, 1, 100, .5, 3)
     //console.log(pixels);
-    for (var i = 0; i < width * 8 * (height - 300); i++) {
+    for (var i = 0; i < width * 8 * (height - 300); i+=contrast) {
         if (pixels[i] != 255)
-            pixels[i] = pixels[i] * noise(pixels[i]) * contrast;
+            pixels[i] = pixels[i] * noise(pixels[i]);
 
 
     }
