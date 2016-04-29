@@ -38,8 +38,8 @@
             <ul class="dropdown-menu" role="menu">
               <li><a onclick="makeSpray()" id="spraycan" href="#spraycan">Spray Can</a></li>
               <li><a onclick="makePaint()" id="paintbrush" href="#paintbrush">Paint Brush</a></li>
-              <li><a onclick="makeRibbon()" id="ribbon" href="#watercolor">Ribbon</a></li>
-              <li><a onclick="makeWatercolor()" id="marker" href="#watercolor">Watercolor</a></li>
+              <li><a onclick="makeRibbon()" id="ribbon" href="#ribbon">Ribbon</a></li>
+              <li><a onclick="makeWatercolor()" id="watercolor" href="#watercolor">Watercolor</a></li>
               <li class="divider"></li>
               <li><a href="#">Cancel</a></li>
             </ul>
@@ -64,20 +64,6 @@
         <li>
           <div class="btn-group">
             <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
-              Colors...
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li> <a onclick="setColor1()" id="color1" href="#color1">Color 1</a></li>
-                <li> <a onclick="setColor2()" id="color2" href="#color2">Color 2</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Cancel</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <div class="btn-group">
-            <button class="btn btn-inverse dropdown-toggle" type="button" data-toggle="dropdown">
               Save...
               <span class="caret"></span>
             </button>
@@ -99,14 +85,12 @@
               <li><a onclick="flipPixV()" id="flipV" href="#line">Flip Vertical</a></li>
               <li><a onclick="flipPixH()" id="flipH" href="#rectangle">Flip Horizontal</a></li>
               <li class="divider"></li>
-              <li><a onclick="speckleLight()" id="triangle" href="#triangle">Speckle Light</a></li>
-              <li><a onclick="speckleDark()" id="triangle" href="#triangle">Speckle Dark</a></li>
+              <li><a onclick="speckle()" id="triangle" href="#triangle">Speckle</a></li>
               <li class="divider"></li>
               <li><a onclick="brokenTV()" id="triangle" href="#triangle">Broken TV</a></li>
               <li><a onclick="chrome()" id="triangle" href="#triangle">Chrome</a></li>
               <li class="divider"></li>
-             <li><a onclick="filter2(1)" id="tingeP" href="#">Tinge (Purple)</a></li>
-             <li><a onclick="filter2(2)" id="tingeG" href="#">Tinge (Green)</a></li>   <!-- should probably get a better name -->
+             <li><a onclick="filter2()" id="triangle" href="#triangle">RGB Swap Tinge</a></li>
               <li class="divider"></li>
               <li><a href="#">Cancel</a></li>
             </ul>
