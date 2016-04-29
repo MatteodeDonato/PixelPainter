@@ -27,13 +27,22 @@ var backColor = 255; //background color
 var palette = [];
 var paletteSelected;
 
+var img;
+
 var grid = "none";
+
+
+function preload() {
+  img = loadImage("Tiger.jpg");
+}
 
 function setup() {
     cursor(CROSS);
     frameRate(60);
     createCanvas(1500, 800);
     background(255);
+      img.resize(width, height);
+  image(img, 0, 0);
 
     tSlider = createSlider(0, 255, 0);
     tSlider.position(500, 530);
@@ -58,6 +67,9 @@ function setup() {
         palette[i] = color(0, 0, 0);
     }
 
+    colorMode(RGB, 255, 255, 255);
+    fill(44,62,80);
+    rect(0, 400, width, 300);
     colorMode(HSB, 200, 200, 200);
     for (var h = 150; h > 0; h--) {
         for (var s = 150; s > 0; s--) {
@@ -66,6 +78,22 @@ function setup() {
             point(h + 200, y + 500);
         }
     }
+    
+
+    stroke(0);
+    fill(255);
+    fill(255, 0, 0);
+    rect(500, 550, 30, 30);
+    fill(0, 255, 0);
+    rect(500, 500, 30, 30);
+    fill(0, 0, 255);
+    rect(560, 550, 30, 30);
+    fill(0, 0, 0);
+    rect(560, 500, 30, 30);
+    fill(255, 255, 255);
+    rect(620, 550, 30, 30);
+    fill(100, 100, 100);
+    rect(620, 500, 30, 30);
 
 }
 
@@ -142,8 +170,6 @@ function draw() {
     //console.log(r1, g1, b1);
     //console.log(r2, g2, b2);
     colorMode(RGB, 255, 255, 255);
-    fill(44,62,80);
-    rect(0, 400, width, 300);
     stroke(0);
     fill(255);
     fill(255, 0, 0);
