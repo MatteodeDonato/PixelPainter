@@ -9,7 +9,6 @@ var endy = 0;
 var r1 = 0;
 var g1 = 0;
 var b1 = 0;
-var a1 = 255;
 var r2 = 0;
 var g2 = 0;
 var b2 = 0;
@@ -143,7 +142,8 @@ function draw() {
     //console.log(r1, g1, b1);
     //console.log(r2, g2, b2);
     colorMode(RGB, 255, 255, 255);
-
+    fill(50, 50, 75);
+    rect(0, 400, width, 300);
     stroke(0);
     fill(255);
     fill(255, 0, 0);
@@ -159,7 +159,6 @@ function draw() {
     fill(100, 100, 100);
     rect(620, 500, 30, 30);
     noStroke();
-
     if (mouseButton == LEFT) setColor1();
     if (mouseButton == RIGHT) setColor2();
 
@@ -250,8 +249,8 @@ function draw() {
             }
             break;
         case "line":
-        stroke(color1);
-        fill(color2);
+        stroke(red(color1), green(color1), blue(color1), o);
+        fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 0) {
@@ -263,8 +262,8 @@ function draw() {
             break;
         case "rectangle":
             strokeWeight(t/25+5);
-            stroke(color1);
-            fill(color2);
+            stroke(red(color1), green(color1), blue(color1), o);
+            fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 1) {
@@ -273,19 +272,18 @@ function draw() {
             break;
         case "ellipse":
             strokeWeight(t/25+5);
-            stroke(color1);
-            fill(color2);
+            stroke(red(color1), green(color1), blue(color1), o);
+            fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 1) {
-                //noStroke();
                 ellipse(startx, starty, 2.8 * (mouseX - startx), 2.8 * (mouseY - starty));
             }
             break;
         case "triangle":
             strokeWeight(t/25+5);
-            stroke(color1);
-            fill(color2);
+            stroke(red(color1), green(color1), blue(color1), o);
+            fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 1) {
@@ -348,6 +346,7 @@ function mouseClicked() {
         }
     }
     count++;
+
     if (count % 2 == 1) {
         startx = mouseX;
         starty = mouseY;
