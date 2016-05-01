@@ -14,7 +14,7 @@ var g2 = 0;
 var b2 = 0;
 var t;
 var o;
-var f;
+var p1, p2;
 var colorSelected;
 var color1;
 var color2;
@@ -41,8 +41,8 @@ function setup() {
     frameRate(60);
     createCanvas(1500, 800);
     background(255);
-      img.resize(width, height);
-  image(img, 0, 0);
+    img.resize(width, height);
+    image(img, 0, 0);
 
     tSlider = createSlider(0, 255, 0);
     tSlider.position(500, 530);
@@ -78,7 +78,7 @@ function setup() {
             point(h + 200, y + 500);
         }
     }
-    
+
 
     stroke(0);
     fill(255);
