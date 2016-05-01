@@ -60,7 +60,7 @@ function filter2() {
     var n = map(p2, 1, 100, 1, 2);
     for(var z = 0; z < n; z++){
     for (var x = 1; x < canvas.width; x+=m) {
-        for (var y = 0; y < canvas.height; y+=1) {
+        for (var y = 0; y < canvas.height - 300; y+=1) {
             var origin = (y * canvas.width + x) * 8; //convert to 1D pixels index
             var dest = (y * width + x) * 8; //convert to 1D pixels index
             pixels[dest] = pixels[origin + 1];
