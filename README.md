@@ -103,11 +103,13 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
     * left-click will set it to color 1
     * right-click will set it to color 2
   * uses built in ```pixels[]``` array and ``get()`` function
+    
     ```
     loadPixels();
     var c = color(get(mouseX, mouseY));
     dropping = true;
     ```
+    
 - Drawing in different colors
   * left-click to draw in color 1
   * right-click to draw in color 2
