@@ -75,14 +75,15 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
     * for best results, lower opacity
     * draws random, overlapping lines
    
-```
+       ```
        strokeWeight(t/50+random(3, 6));
        stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155)+o/2);
        line(pmouseX + 2 * i, pmouseY + i, mouseX + 2 * i, mouseY + i);
-```
+       ```
   * *Ribbon*
     * draws several parallel lines
     * looks like a 3D Ribbon
+    * works similar to watercolor, except draws straight lines
 - **Shapes**
   * *Line*
     * click to define the first point, and click again to define endpoint
@@ -101,6 +102,12 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * click on the color you woul like to choose
     * left-click will set it to color 1
     * right-click will set it to color 2
+  * uses built in ```pixels[]``` array and ``get()`` function
+    ```
+    loadPixels();
+    var c = color(get(mouseX, mouseY));
+    dropping = true;
+    ```
 - Drawing in different colors
   * left-click to draw in color 1
   * right-click to draw in color 2
@@ -122,5 +129,5 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * uses *Perlin noise algorithm*
   * gives a grainy feel
   * parameter: *light or dark*
-  * parameter: 
-  * 
+  * parameter: *contrast*
+ 
