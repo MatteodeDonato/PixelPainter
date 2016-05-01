@@ -57,6 +57,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - **Pencil**
   * default mode
   * draws simple strokes
+    * works by rapidly drawing points and connecting them with lines
 - **Eraser**
   * removes strokes
   * thicker than pencil
@@ -67,9 +68,15 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
     * draws points around cursor
   * *Paintbrush*
     * simulates a paintbrush
+    * pencil w/ blurred edges
+    * **!!!!EMILY CODE FOR THIS!!!!**
   * *Watercolor*
     * watercolor-effect brush
     * for best results, lower opacity
+    * draws random, overlapping lines
+    ```strokeWeight(t/50+random(3, 6));
+    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155)+o/2);
+    line(pmouseX + 2 * i, pmouseY + i, mouseX + 2 * i, mouseY + i);```
   * *Ribbon*
     * draws several parallel lines
     * looks like a 3D Ribbon
