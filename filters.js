@@ -59,8 +59,8 @@ function filter2() {
     var m = map(p1, 1, 100, .5, 1);
     var n = map(p2, 1, 100, 1, 2);
     for(var z = 0; z < n; z++){
-    for (var x = 0; x < canvas.width; x+=m) {
-        for (var y = 0; y < canvas.height - 300; y+=m) {
+    for (var x = 1; x < canvas.width; x+=m) {
+        for (var y = 0; y < canvas.height; y+=1) {
             var origin = (y * canvas.width + x) * 8; //convert to 1D pixels index
             var dest = (y * width + x) * 8; //convert to 1D pixels index
             pixels[dest] = pixels[origin + 1];
@@ -117,83 +117,33 @@ function swapVals() {
     updatePixels();
 }
 
-// function speckleLight(){
-//   loadPixels();
-//   for(var i = 0; i < pixels.length - 1000 * 4; i++)
-//     pixels[i] = pixels[i] / noise(pixels[i]);
-//
-//   updatePixels();
-//
-// }
-//
-// function speckleLight() {
-//     loadPixels();
-//     console.log(pixels);
-//     for (var i = 0; i < width * 8 * (height - 300); i++) {
-//         if (pixels[i] != 255)
-//             pixels[i] = pixels[i] * noise(pixels[i]) * f;
-//
-//
-//     }
-//     updatePixels();
-//
-// }
-//
-//
-// function speckleDark() {
-//     loadPixels();
-//     console.log(pixels);
-//     for (var i = 0; i < width * 8 * (height - 300); i++) {
-//         if (pixels[i] != 255)
-//             pixels[i] = pixels[i] * noise(pixels[i]) * f;
-//
-//
-//     }
-//     updatePixels();
-//
-// }
-//
-// function speckle(mode, mult){
-//     loadPixels();
-//     for (var i = 0; i < width * 8 * (height - 300); i++){
-//       if(pixels[i] != 255){
-//         if(mode > 50) pixels[i] / noise(pixels[i]) * mult;
-//         else if(mode >= 50) pixels[i] * noise(pixels[i]) * mult;
-//
-//       }
-//
-//     }
-//
-//
-// }
-
 
 
 function speckleDark() {
-  console.log("SPECKLE DARK");
     loadPixels();
-    var contrast = map(p2, 1, 100, .5, 3)
-    //console.log(pixels);
-    for (var i = 0; i < width * 8 * (height - 300); i+=contrast) {
+    var contrast = map(p2, 1, 100, 1, 5);
+    for(var j = 0; j < contrast; j++){
+    for (var i = 0; i < width * 8 * (height - 300); i+=1) {
         if (pixels[i] != 255)
             pixels[i] = pixels[i] / noise(pixels[i]);
 
 
+    }
     }
     updatePixels();
 
 }
 
 function speckleLight() {
-    console.log("SPECKLE LIGHT");
+
     loadPixels();
-    var contrast = map(p2, 1, 100, .5, 3)
-    //console.log(pixels);
+    var contrast = map(p2, 1, 100, 1, 5);
+    for(var j = 0; j < contrast; j++){
     for (var i = 0; i < width * 8 * (height - 300); i+=contrast) {
         if (pixels[i] != 255)
             pixels[i] = pixels[i] * noise(pixels[i]);
 
-
+    }
     }
     updatePixels();
 
@@ -205,6 +155,7 @@ function speckle(){
   else if(mode == 2) speckleLight()
 
 }
+
 
 
 function brokenTV() {
