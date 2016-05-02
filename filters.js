@@ -139,7 +139,7 @@ function speckleLight() {
     loadPixels();
     var contrast = map(p2, 1, 100, 1, 5);
     for(var j = 0; j < contrast; j++){
-    for (var i = 0; i < width * 8 * (height - 300); i+=contrast) {
+    for (var i = 0; i < width * 8 * (height - 300); i+=1) {         //or +=contrast?
         if (pixels[i] != 255)
             pixels[i] = pixels[i] * noise(pixels[i]);
 
