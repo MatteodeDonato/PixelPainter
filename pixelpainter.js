@@ -33,7 +33,7 @@ var grid = "none";
 
 
 function preload() {
-  img = loadImage("Tiger.jpg");
+    img = loadImage("Tiger.jpg");
 }
 
 function setup() {
@@ -68,7 +68,7 @@ function setup() {
     }
 
     colorMode(RGB, 255, 255, 255);
-    fill(44,62,80);
+    fill(44, 62, 80);
     rect(0, 400, width, 300);
     colorMode(HSB, 200, 200, 200);
     for (var h = 150; h > 0; h--) {
@@ -78,7 +78,6 @@ function setup() {
             point(h + 200, y + 500);
         }
     }
-
 
     stroke(0);
     fill(255);
@@ -161,14 +160,15 @@ function makeRibbon() {
 
 
 //save file; specify type in parameters
+//file count is for the name of the file
 function saveImg(fileType) {
     save("drawing" + fileCount + "." + fileType);
     fileCount++;
 }
 
 function draw() {
-    //console.log(r1, g1, b1);
-    //console.log(r2, g2, b2);
+
+    //default colors
     colorMode(RGB, 255, 255, 255);
     stroke(0);
     fill(255);
@@ -188,19 +188,20 @@ function draw() {
     if (mouseButton == LEFT) setColor1();
     if (mouseButton == RIGHT) setColor2();
 
+    //cursor tracker; edits p in HTML file
     document.getElementById("cursorTracker").innerHTML = "\t(" + mouseX + "," + mouseY + ") ";
 
-
+    //gets value of sliders
     t = tSlider.value();
     o = oSlider.value();
     p1 = p1Slider.value();
     p2 = p2Slider.value();
 
     stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
-
     fill(red(colorSelected), green(colorSelected), blue(colorSelected), o);
     strokeWeight(t + 10);
 
+    //evaluate which mode is selected
     switch (mode) {
         case "pencil":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
@@ -228,8 +229,8 @@ function draw() {
         case "watercolor":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) { //watercolors
                 for (var i = -10; i <= 10; i++) {
-                    strokeWeight(t/50+random(3, 6));
-                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155)+o/2);
+                    strokeWeight(t / 50 + random(3, 6));
+                    stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155) + o / 2);
                     line(pmouseX + 2 * i, pmouseY + i, mouseX + 2 * i, mouseY + i);
                 }
             }
@@ -239,8 +240,8 @@ function draw() {
                 for (var i = -10; i <= 10; i++) {
                     fill(red(colorSelected), green(colorSelected), blue(colorSelected), o);
                     stroke(red(colorSelected), green(colorSelected), blue(colorSelected), o);
-                    strokeWeight(1/50+t/25);
-                    line(pmouseX + 2 * i*t*5/100, pmouseY, mouseX + 2 * i*t*5/100, mouseY);
+                    strokeWeight(1 / 50 + t / 25);
+                    line(pmouseX + 2 * i * t * 5 / 100, pmouseY, mouseX + 2 * i * t * 5 / 100, mouseY);
                     if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
                         point(mouseX, mouseY);
                 }
@@ -267,7 +268,7 @@ function draw() {
                     var x = randomGaussian(mouseX, 15);
                     var y = randomGaussian(mouseY, 15);
                     for (var i = 0; i < 20; i++) {
-                        ellipse(x, y, .5+ t/25, .5+t/25);
+                        ellipse(x, y, .5 + t / 25, .5 + t / 25);
                     }
                 }
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0)
@@ -275,8 +276,8 @@ function draw() {
             }
             break;
         case "line":
-        stroke(red(color1), green(color1), blue(color1), o);
-        fill(red(color2), green(color2), blue(color2), o);
+            stroke(red(color1), green(color1), blue(color1), o);
+            fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 0) {
@@ -287,7 +288,7 @@ function draw() {
             }
             break;
         case "rectangle":
-            strokeWeight(t/25+5);
+            strokeWeight(t / 25 + 5);
             stroke(red(color1), green(color1), blue(color1), o);
             fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
@@ -297,7 +298,7 @@ function draw() {
             }
             break;
         case "ellipse":
-            strokeWeight(t/25+5);
+            strokeWeight(t / 25 + 5);
             stroke(red(color1), green(color1), blue(color1), o);
             fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
@@ -307,7 +308,7 @@ function draw() {
             }
             break;
         case "triangle":
-            strokeWeight(t/25+5);
+            strokeWeight(t / 25 + 5);
             stroke(red(color1), green(color1), blue(color1), o);
             fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
@@ -319,35 +320,36 @@ function draw() {
             break;
 
         case "dropper":
-        if(mouseY>1){
-            loadPixels();
-            var c = color(get(mouseX, mouseY));
-            console.log(red(c), green(c), blue(c));
-            dropping = true;
-            if(mouseIsPressed){
-              if(mouseButton == LEFT){
-              r1 = red(c);
-              g1 = green(c);
-              b1 = blue(c);
-              a1 = o;
-              colorSelected = c;
-              console.log(r1, g1, b1);
-              }
-              if(mouseButton == RIGHT){
-              r2 = red(c);
-              g2 = green(c);
-              b2 = blue(c);
-              a1 = o;
-              colorSelected = c;
-              }
+            if (mouseY > 1) {
+                loadPixels();
+                var c = color(get(mouseX, mouseY));
+                console.log(red(c), green(c), blue(c));
+                dropping = true;
+                if (mouseIsPressed) {
+                    if (mouseButton == LEFT) {
+                        r1 = red(c);
+                        g1 = green(c);
+                        b1 = blue(c);
+                        a1 = o;
+                        colorSelected = c;
+                        console.log(r1, g1, b1);
+                    }
+                    if (mouseButton == RIGHT) {
+                        r2 = red(c);
+                        g2 = green(c);
+                        b2 = blue(c);
+                        a1 = o;
+                        colorSelected = c;
+                    }
+                }
+                noStroke();
+                fill(colorSelected);
+                rect(0, 0, 50, 50);
             }
-            noStroke();
-            fill(colorSelected);
-            rect(0, 0, 50, 50);
-          }
     }
 }
 
+//double-buffering for growth of line and shapes
 function updateBuffer() {
     if (grid == "display") {
         for (var i = 0; i < width; i += 20) {
