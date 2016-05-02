@@ -1,10 +1,9 @@
 # PixelPainter
-(c) 2016 Jack Blaney, Emily Mattlin, Matteo de Donato
+(c) Emily Mattlin, Matteo de Donato, John Blaney
 
 Pixelpainter is an open-source, web-based image editting enviornment.
 It uses the open-source javascript processing API [p5js](p5js.org).
 
-**Important** Do not adjust the screen size —— it will cause the sliders to be out of place
 
 ###Requirements
 Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpimages/390/download/download_1789690.pdf)
@@ -69,7 +68,19 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * *Paintbrush*
     * simulates a paintbrush
     * pencil w/ blurred edges
-    * **!!!!EMILY CODE FOR THIS!!!!**
+ 
+        ```
+        for (var i = 10; i > 00; i--) {
+                    [...]
+                    strokeCap(ROUND);
+                    line(pmouseX, pmouseY, mouseX, mouseY);
+                    strokeWeight(3 * i);
+                    [...]
+                    strokeCap(SQUARE);
+                    line(pmouseX, pmouseY, mouseX, mouseY);
+                    }
+         ```
+         
   * *Watercolor*
     * watercolor-effect brush
     * for best results, lower opacity
