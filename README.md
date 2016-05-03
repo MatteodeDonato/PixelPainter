@@ -5,7 +5,7 @@ Pixelpainter is an open-source, web-based image editting enviornment.
 It uses the open-source javascript processing API [p5js](p5js.org).
 
 
-###Requirements
+##Requirements
 Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpimages/390/download/download_1789690.pdf)
 
 > ####Part I: ​Create a basic pixel drawing experience.
@@ -50,9 +50,9 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 > - **Extension​**: Add professional features. (depending on time, probably optional since only one group got to it last year)
 >­Select, resize, rotate, zoom, layers, canvas size
 
-###Features
+##Features
 
-####Tools
+###Tools
 - **Pencil**
   * default mode
   * draws simple strokes
@@ -65,6 +65,18 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * *Spray Can*
     * press and hold to spray
     * draws points around cursor
+    * draws points that are random, but localized, with a Gaussian distribution
+    
+   ```
+   for (var h = 0; h < 100; h++) {
+                    var x = randomGaussian(mouseX, 15);
+                    var y = randomGaussian(mouseY, 15);
+                    for (var i = 0; i < 20; i++) {
+                        ellipse(x, y, .5 + t / 25, .5 + t / 25);
+                    }
+                    
+    ```
+    
   * *Paintbrush*
     * simulates a paintbrush
     * pencil w/ blurred edges
@@ -88,7 +100,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
    
        ```
        strokeWeight(t/50+random(3, 6));
-       stroke(red(colorSelected), green(colorSelected), blue(colorSelected), random(100, 155)+o/2);
+       //[randomize opacity]
        line(pmouseX + 2 * i, pmouseY + i, mouseX + 2 * i, mouseY + i);
        ```
   * *Ribbon*
@@ -105,12 +117,13 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * *Ellipse*
     * draws an ellipse
   * *Triangle*
-    * draws a two-point triangle
+    * draws a right triangle
+    * define two points
 
-####Color
+###Color
 - Dropper
   * select the dropper tool in the toolbar
-  * click on the color you woul like to choose
+  * click on the color you would like to choose
     * left-click will set it to color 1
     * right-click will set it to color 2
   * uses built in ```pixels[]``` array and ``get()`` function
@@ -127,20 +140,25 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * both colors default to ```0, 0, 0```
 - Color palette
   * color palette is hue on the x-axis and saturation on the y-axis
+  * use dropper to select a color
 
 ####Filters
 - Tinge
   * shifts ```(r, g, b)``` values of each of the pixels
   * parameter: *intensity*
+    * continuous parameter
     * how many of the pixels are changed
     * the more densly the pixels are changed, will look more intense
     * if less, it will give just a slight undertone
   * parameter: *number of times values are shifted*
+    * binary parameter
     * if slider is at the left, shifts values once
     * right, twice
 - Speckle
   * uses *Perlin noise algorithm*
   * gives a grainy feel
   * parameter: *light or dark*
+    * multiply or divide
   * parameter: *contrast*
+    * how many times it gets "speckled"
  
