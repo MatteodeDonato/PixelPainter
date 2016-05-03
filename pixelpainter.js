@@ -250,7 +250,7 @@ function draw() {
         case "eraser":
             if (mouseIsPressed && mouseX < 1500 && mouseY < 500 - 100 && mouseX > 0 && mouseY > 0) {
                 strokeWeight(50);
-                stroke(backColor);
+                stroke(color2);
                 line(pmouseX, pmouseY, mouseX, mouseY);
                 if (abs(mouseX - pmouseX) <= 0 && abs(mouseY - pmouseY) <= 0) {
                     point(mouseX, mouseY);
