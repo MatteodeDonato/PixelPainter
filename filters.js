@@ -70,7 +70,6 @@ function speckle(){
 }
 
 
-
 function psychedelic(){
   loadPixels();
 var row = 4 * img.width;
@@ -92,10 +91,10 @@ function flipH() {
   var rowLength = 4 * img.width;//How many total spots in the pixels array
                           //indicates a new row in the image?
   //go through half of the pixels
-  for (var y = 1; y <= img.height/2; y++) {
+  for (var y = 1; y <= (img.height-400)/2; y++) {
     //y controls the corresponding rows to be switched
     var topRow = rowLength * (y - 1); //1st row, 2nd row,... down to middle row
-    var bottomRow = rowLength * (img.height - y); //last row, 2nd to last,... up to middle row
+    var bottomRow = rowLength * ((img.height-400) - y); //last row, 2nd to last,... up to middle row
 
     for (var x = 0; x < rowLength; x += 4) {
     //x is the column, moving left to right
@@ -116,7 +115,7 @@ function flipV() {
   //indicates a new row in the image?
 
   //go through half of the pixels
-  for (var j = 1; j <= img.height; j++) { //j is the row
+  for (var j = 1; j <= img.height-400; j++) { //j is the row
     var currentRow = row * j; //which row are we on?
 
     for (var i = 0; i < row; i += 4) { //i is the column
@@ -143,12 +142,11 @@ function brokenTV(){
     flipH();
   }
   loadPixels();
-  for (var i = 0; i < width * 4 * (height); i+=1) {
+  for (var i = 0; i < width * 4 * (height-400); i+=1) {
     pixels[i] = pixels[i+parseInt(p2/10)] * noise(pixels[i+parseInt(p2)]);
   }
   updatePixels();
 }
-
 function flipPixH() {
     loadPixels();
     var d = pixelDensity();
