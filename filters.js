@@ -18,7 +18,7 @@ function filter2() {
     var n = map(p2, 1, 100, 1, 2);
     for(var z = 0; z < n; z++){
     for (var x = 1; x < canvas.width; x+=m) {
-        for (var y = 0; y < canvas.height - 300; y+=1) {
+        for (var y = 0; y < canvas.height - 600; y+=1) {
             var origin = (y * canvas.width + x) * 8; //convert to 1D pixels index
             var dest = (y * width + x) * 8; //convert to 1D pixels index
             pixels[dest] = pixels[origin + 1];
@@ -36,7 +36,7 @@ function speckleDark() {
     loadPixels();
     var contrast = map(p2, 1, 100, 1, 5);
     for(var j = 0; j < contrast; j++){
-    for (var i = 0; i < width * 8 * (height - 300); i+=1) {
+    for (var i = 0; i < width * 8 * (height - 600); i+=1) {
         if (pixels[i] != 255)
             pixels[i] = pixels[i] / noise(pixels[i]);
 
@@ -52,7 +52,7 @@ function speckleLight() {
     loadPixels();
     var contrast = map(p2, 1, 100, 1, 5);
     for(var j = 0; j < contrast; j++){
-    for (var i = 0; i < width * 8 * (height - 300); i+=1) {
+    for (var i = 0; i < width * 8 * (height - 600); i+=1) {
         if (pixels[i] != 255)
             pixels[i] = pixels[i] * noise(pixels[i]);
 
@@ -74,7 +74,7 @@ function speckle(){
 function psychedelic(){
   loadPixels();
 var row = 4 * img.width;
-for (var j = 1; j <= img.height; j++) { //j is the row
+for (var j = 1; j <= img.height - 400; j++) { //j is the row
   var currentRow = row * j; //which row are we on?
 
   for (var i = 0; i < row; i += 4) { //i is the column
@@ -143,7 +143,7 @@ function brokenTV(){
     flipH();
   }
   loadPixels();
-  for (var i = 0; i < width * 4 * height; i+=1) {
+  for (var i = 0; i < width * 4 * (height); i+=1) {
     pixels[i] = pixels[i+parseInt(p2/10)] * noise(pixels[i+parseInt(p2)]);
   }
   updatePixels();
