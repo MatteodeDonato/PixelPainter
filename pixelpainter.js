@@ -344,7 +344,7 @@ function draw() {
                 }
                 noStroke();
                 fill(colorSelected);
-                rect(0, 0, 50, 50);
+                rect(50, 450, 50, 50);
             }
     }
 }
