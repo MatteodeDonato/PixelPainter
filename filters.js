@@ -71,16 +71,46 @@ function speckle(){
 
 
 
-function brokenTV() {
+function psychedelic(){
   loadPixels();
-  for (var i = 0; i < width * 4 * height; i+=f/10) {
-    pixels[i] = pixels[i] * noise(pixels[i]);
-  }
-  updatePixels();
+var row = 4 * img.width;
+for (var j = 1; j <= img.height; j++) { //j is the row
+  var currentRow = row * j; //which row are we on?
 
+  for (var i = 0; i < row; i += 4) { //i is the column
+    pixels[currentRow + row - i] = pixels[currentRow + row - i]; //r
+    pixels[currentRow + row - i + 1] = pixels[currentRow + row - i + p1]; //g
+    pixels[currentRow + row - i + 2] = pixels[currentRow + row - i + p2+1]; //b
+    pixels[currentRow + row - i + 3] = pixels[currentRow + row - i + 16];//+f/10]; //a
+  } //swap color information for each pixel
+}
+updatePixels();
 }
 
-function silver() {
+function flipH() {
+  loadPixels();
+  var rowLength = 4 * img.width;//How many total spots in the pixels array
+                          //indicates a new row in the image?
+  //go through half of the pixels
+  for (var y = 1; y <= img.height/2; y++) {
+    //y controls the corresponding rows to be switched
+    var topRow = rowLength * (y - 1); //1st row, 2nd row,... down to middle row
+    var bottomRow = rowLength * (img.height - y); //last row, 2nd to last,... up to middle row
+
+    for (var x = 0; x < rowLength; x += 4) {
+    //x is the column, moving left to right
+      pixels[bottomRow + x] = pixels[topRow + x]; //r
+      pixels[bottomRow + x + 1] = pixels[topRow + x + 1];//g
+      pixels[bottomRow + x + 2] = pixels[topRow + x + 2];//b
+      //pixels[bottomRow + x + 3] = pixels[topRow + x + 3];//a
+    }//swap color information for each pixel
+
+  }
+
+  updatePixels();
+}
+
+function flipV() {
   loadPixels();
   var row = 4 * img.width; //How many total spots in the pixels array
   //indicates a new row in the image?
@@ -90,11 +120,31 @@ function silver() {
     var currentRow = row * j; //which row are we on?
 
     for (var i = 0; i < row; i += 4) { //i is the column
-      pixels[currentRow + row - i] = pixels[currentRow + row - i]; //r
-      pixels[currentRow + row - i + 1] = pixels[currentRow + row - i + 1]; //g
-      pixels[currentRow + row - i + 2] = pixels[currentRow + row - i + 2]; //b
-      pixels[currentRow + row - i + 3] = pixels[currentRow + row - i + 16+f/10]; //a
+      pixels[currentRow+row - i] = pixels[currentRow + i]; //r
+      pixels[currentRow+row - i + 1] = pixels[currentRow + i + 1]; //g
+      pixels[currentRow+row - i + 2] = pixels[currentRow + i + 2]; //b
+      //pixels[bottomPixel + i + 3] = 255;//a
     } //swap color information for each pixel
+
+  }
+
+  updatePixels();
+}
+
+function brokenTV(){
+  if(p1<25){
+    flipH();
+  }
+  if(p1>75){
+    flipV();
+  }
+  if(p1>=25&&p1<=75){
+    flipV();
+    flipH();
+  }
+  loadPixels();
+  for (var i = 0; i < width * 4 * height; i+=1) {
+    pixels[i] = pixels[i+parseInt(p2/10)] * noise(pixels[i+parseInt(p2)]);
   }
   updatePixels();
 }
