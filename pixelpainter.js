@@ -167,7 +167,12 @@ function saveImg(fileType) {
 }
 
 function draw() {
-
+    if(mode != "dropper"){
+        noStroke();
+        colorMode(RGB, 255, 255, 255);
+        fill(44, 62, 80);
+        rect(80, 440, 52, 52);
+    }
     //default colors
     colorMode(RGB, 255, 255, 255);
     stroke(0);
@@ -276,6 +281,7 @@ function draw() {
             }
             break;
         case "line":
+            if(mouseY<height-400){
             stroke(red(color1), green(color1), blue(color1), o);
             fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
@@ -286,8 +292,10 @@ function draw() {
             if (count % 2 == 1) {
                 line(startx, starty, mouseX, mouseY);
             }
+            }
             break;
         case "rectangle":
+            if(mouseY<height-400){
             strokeWeight(t / 25 + 5);
             stroke(red(color1), green(color1), blue(color1), o);
             fill(red(color2), green(color2), blue(color2), o);
@@ -296,18 +304,24 @@ function draw() {
             if (count % 2 == 1) {
                 rect(startx, starty, mouseX - startx, mouseY - starty);
             }
+            }
             break;
         case "ellipse":
+            if(mouseY<height-400){
             strokeWeight(t / 25 + 5);
             stroke(red(color1), green(color1), blue(color1), o);
             fill(red(color2), green(color2), blue(color2), o);
             pixels = buffer;
             updatePixels();
             if (count % 2 == 1) {
+                if(starty-(2.8 * (mouseY - starty))-200<height-400){
                 ellipse(startx, starty, 2.8 * (mouseX - startx), 2.8 * (mouseY - starty));
+                }
+            }
             }
             break;
         case "triangle":
+            if(mouseY<height-400){
             strokeWeight(t / 25 + 5);
             stroke(red(color1), green(color1), blue(color1), o);
             fill(red(color2), green(color2), blue(color2), o);
@@ -316,6 +330,7 @@ function draw() {
             if (count % 2 == 1) {
                 //noStroke();
                 triangle(startx, starty, startx, mouseY, mouseX, mouseY);
+            }
             }
             break;
 
@@ -343,8 +358,12 @@ function draw() {
                     }
                 }
                 noStroke();
-                fill(colorSelected);
-                rect(50, 450, 50, 50);
+                fill(color(get(mouseX, mouseY)));//colorSelected);
+                rect(80, 440, 50, 50);
+                fill(r1, g1, b1);
+                rect(50, 510, 50, 50);
+                fill(r2, g2, b2);
+                rect(110, 510, 50, 50);
             }
     }
 }
@@ -375,7 +394,7 @@ function mouseClicked() {
         }
     }
     count++;
-
+if(mouseY<height-400){
     if (count % 2 == 1) {
         startx = mouseX;
         starty = mouseY;
@@ -383,6 +402,17 @@ function mouseClicked() {
     if (count % 2 == 0) {
         endx = mouseX;
         endy = mouseY;
+    }
+}
+    else{
+        if (count % 2 == 1) {
+        startx = mouseX;
+        starty = height-400;
+    }
+    if (count % 2 == 0) {
+        endx = mouseX;
+        endy = mouseY;
+    }
     }
     updateBuffer();
     if (mouseX > 1000 && mouseX < 1200 && mouseY > 100 && mouseY < 300) {
