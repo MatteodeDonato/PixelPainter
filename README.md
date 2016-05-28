@@ -162,3 +162,10 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
   * parameter: *contrast*
     * how many times it gets "speckled"
  
+
+##In Progress:
+- Compatibility with Retina displays
+- No weird "time lapses"
+- Minor bug fixes
+  * spray can should not draw beyond border
+  * if thickness is increased, should not draw beyond border
