@@ -169,3 +169,7 @@ Link to requirements sheet [here](https://trinityschoolnyc.myschoolapp.com/ftpim
 - Minor bug fixes
   * spray can should not draw beyond border
   * if thickness is increased, should not draw beyond border
+- Eraser
+  * why is it weirdly slow?
+  * also, why does it draw in color2? —— what's the point?
+  * should it draw in white?
