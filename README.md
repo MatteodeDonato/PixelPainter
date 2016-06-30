@@ -1,3 +1,4 @@
+OKOK
 # PixelPainter
 (c) Emily Mattlin, Matteo de Donato, John Blaney
 
