@@ -1,3 +1,4 @@
+//HI
 var myCanvas;
 var img;
 
