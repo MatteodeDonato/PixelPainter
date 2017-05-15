@@ -37,6 +37,7 @@ function preload() {
 }
 
 function setup() {
+    pixelDensity(1);
     cursor(CROSS);
     frameRate(60);
     createCanvas(1500, 800);
